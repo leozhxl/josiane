@@ -1,0 +1,1214 @@
+﻿<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin — ALL.ECOM</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='16' fill='%230038a7'/><text y='.9em' font-size='80' font-family='Arial' font-weight='900' fill='%23ffd700' x='10'>A</text></svg>">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+<link rel="stylesheet" href="css/admin.css">
+</head>
+<body class="admin-body">
+
+<!-- ═══════════════════════════════════════
+     TELA DE LOGIN
+═══════════════════════════════════════ -->
+<div id="admin-login">
+  <div class="login-card">
+    <div class="login-logo-img-wrap">
+      <img src="assets/img/logo-orange.png" alt="Josiane Vargas Psicopedagoga" class="login-logo-img">
+      <small>Painel Administrativo</small>
+    </div>
+    <form id="admin-login-form">
+      <div class="adm-form-group">
+        <label><i class="ti ti-user"></i> Usuário</label>
+        <input type="text" id="adm-user" placeholder="admin" autocomplete="username" required>
+      </div>
+      <div class="adm-form-group">
+        <label><i class="ti ti-lock"></i> Senha</label>
+        <div class="adm-input-eye">
+          <input type="password" id="adm-pass" placeholder="••••••••" autocomplete="current-password" required>
+          <button type="button" class="adm-eye"><i class="ti ti-eye"></i></button>
+        </div>
+      </div>
+      <p id="login-error"></p>
+      <button type="submit" class="adm-login-btn">Entrar no Painel</button>
+    </form>
+    <p class="login-back"><a href="index.html"><i class="ti ti-arrow-left"></i> Voltar para a loja</a></p>
+    <p class="login-reset"><a href="#" id="btn-reset-creds">Esqueci minha senha</a></p>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════
+     PAINEL PRINCIPAL
+═══════════════════════════════════════ -->
+<div id="admin-panel" style="display:none">
+
+  <!-- SIDEBAR -->
+  <aside class="adm-sidebar" id="sidebar">
+    <div class="adm-sidebar-logo-img-wrap">
+      <img src="assets/img/logo-white.png" alt="Josiane Vargas Psicopedagoga" class="adm-logo-img">
+      <small>Admin</small>
+    </div>
+
+    <nav class="adm-nav">
+      <button class="adm-nav-item active" data-section="dashboard">
+        <i class="ti ti-dashboard"></i> <span>Dashboard</span>
+      </button>
+      <button class="adm-nav-item" data-section="clientes">
+        <i class="ti ti-users"></i> <span>Clientes</span>
+      </button>
+      <button class="adm-nav-item" data-section="pedidos">
+        <i class="ti ti-shopping-bag"></i> <span>Pedidos</span>
+      </button>
+      <button class="adm-nav-item" data-section="produtos">
+        <i class="ti ti-box"></i> <span>Produtos</span>
+      </button>
+      <button class="adm-nav-item" data-section="anuncios">
+        <i class="ti ti-speakerphone"></i> <span>Anúncios</span>
+      </button>
+      <button class="adm-nav-item" data-section="crm">
+        <i class="ti ti-chart-bar"></i> <span>CRM</span>
+      </button>
+      <button class="adm-nav-item" data-section="config">
+        <i class="ti ti-settings"></i> <span>Configurações</span>
+      </button>
+    </nav>
+
+    <div class="adm-sidebar-footer">
+      <a href="index.html" class="adm-nav-item" target="_blank">
+        <i class="ti ti-external-link"></i> <span>Ver Loja</span>
+      </a>
+      <button class="adm-nav-item adm-logout" id="btn-logout">
+        <i class="ti ti-logout"></i> <span>Sair</span>
+      </button>
+    </div>
+  </aside>
+
+  <!-- CONTEÚDO -->
+  <main class="adm-main">
+
+    <!-- TOPBAR -->
+    <div class="adm-topbar">
+      <button class="adm-menu-toggle" id="menu-toggle"><i class="ti ti-menu-2"></i></button>
+      <div class="adm-topbar-title" id="topbar-title">Dashboard</div>
+      <div class="adm-topbar-right">
+        <button id="btn-tema" onclick="toggleTema()">
+          <i class="ti ti-moon" id="tema-icon"></i>
+          <span id="tema-label">Tema Escuro</span>
+        </button>
+        <div class="adm-avatar"><i class="ti ti-user-circle"></i> Admin</div>
+      </div>
+    </div>
+
+    <!-- ── DASHBOARD ──────────────────────────────── -->
+    <section class="adm-section active" id="sec-dashboard">
+
+      <!-- Cards escuros estilo premium -->
+      <div class="db-metric-row">
+        <div class="db-metric-card">
+          <div class="db-metric-top">
+            <span class="db-metric-label">Faturamento de Hoje</span>
+            <canvas class="db-sparkline" id="spark-faturamento" width="100" height="40"></canvas>
+          </div>
+          <div class="db-metric-value" id="dash-faturamento">R$ 0</div>
+          <div class="db-metric-delta db-delta-up" id="delta-faturamento">
+            <i class="ti ti-trending-up"></i> <span>4,8%</span> em relação a ontem
+          </div>
+        </div>
+        <div class="db-metric-card">
+          <div class="db-metric-top">
+            <span class="db-metric-label">Pedidos de Hoje</span>
+            <canvas class="db-sparkline" id="spark-pedidos" width="100" height="40"></canvas>
+          </div>
+          <div class="db-metric-value" id="dash-pedidos">0</div>
+          <div class="db-metric-delta db-delta-up" id="delta-pedidos">
+            <i class="ti ti-trending-up"></i> <span>2,1%</span> em relação a ontem
+          </div>
+        </div>
+        <div class="db-metric-card">
+          <div class="db-metric-top">
+            <span class="db-metric-label">Visitantes de Hoje</span>
+            <canvas class="db-sparkline" id="spark-visitantes" width="100" height="40"></canvas>
+          </div>
+          <div class="db-metric-value" id="dash-visitantes">–</div>
+          <div class="db-metric-delta db-delta-up" id="delta-visitantes">
+            <i class="ti ti-trending-up"></i> <span>9,3%</span> em relação a ontem
+          </div>
+        </div>
+        <div class="db-metric-card">
+          <div class="db-metric-top">
+            <span class="db-metric-label">Clientes Cadastrados</span>
+            <canvas class="db-sparkline" id="spark-clientes" width="100" height="40"></canvas>
+          </div>
+          <div class="db-metric-value" id="dash-clientes">0</div>
+          <div class="db-metric-delta db-delta-up" id="delta-clientes">
+            <i class="ti ti-trending-up"></i> <span>1,2%</span> em relação a ontem
+          </div>
+        </div>
+      </div>
+
+      <!-- Analytics + Distribuição -->
+      <div class="db-charts-row">
+        <!-- Gráfico de linha grande -->
+        <div class="db-chart-card db-chart-card--lg">
+          <div class="db-chart-header">
+            <div>
+              <div class="db-chart-title">Análise de Vendas</div>
+              <div class="db-chart-sub">Receita mensal acumulada</div>
+            </div>
+            <div class="db-period-tabs">
+              <button class="db-period"        data-period="hoje"   onclick="mudarPeriodo(this)">Hoje</button>
+              <button class="db-period"        data-period="semana" onclick="mudarPeriodo(this)">Semanal</button>
+              <button class="db-period active" data-period="mes"    onclick="mudarPeriodo(this)">Mensal</button>
+              <button class="db-period"        data-period="ano"    onclick="mudarPeriodo(this)">Anual</button>
+            </div>
+          </div>
+          <div class="db-chart-canvas-wrap">
+            <canvas id="chart-vendas"></canvas>
+          </div>
+        </div>
+
+        <!-- Mini gráfico de barras -->
+        <div class="db-chart-card">
+          <div class="db-chart-header">
+            <div>
+              <div class="db-chart-title">Pedidos por Status</div>
+              <div class="db-chart-sub">Distribuição atual</div>
+            </div>
+          </div>
+          <div class="db-chart-canvas-wrap db-chart-canvas-wrap--sm">
+            <canvas id="chart-status"></canvas>
+          </div>
+          <div class="db-legend" id="db-legend-status"></div>
+        </div>
+      </div>
+
+      <!-- Últimos pedidos + Clientes + Top produtos -->
+      <!-- Tabela Best Selling Products -->
+      <div class="bsp-card">
+        <div class="bsp-header">
+          <div class="bsp-title"><i class="ti ti-trophy"></i> Produtos Mais Vendidos</div>
+          <div class="bsp-controls">
+            <div class="bsp-search-wrap">
+              <i class="ti ti-search"></i>
+              <input type="text" id="bsp-search" class="bsp-search" placeholder="Buscar produto..." oninput="filtrarBSP()">
+            </div>
+            <div class="bsp-dropdown" id="bsp-sort-wrap">
+              <button class="bsp-btn" onclick="toggleBSPSort()"><i class="ti ti-arrows-sort"></i> Ordenar: <span id="bsp-sort-label">Vendas</span> <i class="ti ti-chevron-down"></i></button>
+              <div class="bsp-dropdown-menu" id="bsp-sort-menu" style="display:none">
+                <div onclick="setSortBSP('vendas','Vendas')">Por Vendas</div>
+                <div onclick="setSortBSP('preco','Preço')">Por Preço</div>
+                <div onclick="setSortBSP('estoque','Estoque')">Por Estoque</div>
+                <div onclick="setSortBSP('nome','Nome')">Por Nome</div>
+              </div>
+            </div>
+            <div class="bsp-dropdown" id="bsp-filter-wrap">
+              <button class="bsp-btn" onclick="toggleBSPFilter()"><i class="ti ti-adjustments-horizontal"></i> Filtrar <i class="ti ti-chevron-down"></i></button>
+              <div class="bsp-dropdown-menu" id="bsp-filter-menu" style="display:none">
+                <div onclick="setFilterBSP('todos','Todos')">Todos</div>
+                <div onclick="setFilterBSP('em_estoque','Em Estoque')">Em Estoque</div>
+                <div onclick="setFilterBSP('sem_estoque','Sem Estoque')">Sem Estoque</div>
+                <div onclick="setFilterBSP('reposicao','Reposição')">Reposição</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="bsp-table-wrap">
+          <table class="bsp-table">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>IMAGEM</th>
+                <th>PRODUTO</th>
+                <th>PREÇO</th>
+                <th>TOTAL VENDAS</th>
+                <th>ESTOQUE</th>
+                <th>STATUS</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody id="bsp-tbody">
+              <tr><td colspan="8" class="bsp-loading"><i class="ti ti-loader-2"></i> Carregando...</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="bsp-footer">
+          <span id="bsp-count">0 produtos</span>
+          <div class="bsp-pagination" id="bsp-pagination"></div>
+        </div>
+      </div>
+
+      <!-- Bottom 3 cards -->
+      <div class="db-bottom-row">
+        <div class="db-list-card">
+          <div class="db-list-header">
+            <span><i class="ti ti-shopping-bag"></i> Últimos Pedidos</span>
+          </div>
+          <div id="dash-ultimos-pedidos" class="adm-mini-list"></div>
+        </div>
+        <div class="db-list-card">
+          <div class="db-list-header">
+            <span><i class="ti ti-users"></i> Últimos Clientes</span>
+          </div>
+          <div id="dash-ultimos-clientes" class="adm-mini-list"></div>
+        </div>
+        <div class="db-list-card">
+          <div class="db-list-header">
+            <span><i class="ti ti-star"></i> Mais Vendidos</span>
+          </div>
+          <div class="adm-mini-list" id="top-produtos"></div>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ── CLIENTES ────────────────────────────────── -->
+    <section class="adm-section" id="sec-clientes">
+      <div class="adm-sec-header">
+        <h2 class="adm-sec-title">Clientes</h2>
+        <div class="adm-sec-actions">
+          <input type="text" class="adm-search" id="busca-clientes" placeholder="Buscar cliente...">
+        </div>
+      </div>
+      <div class="adm-table-wrap">
+        <table class="adm-table" id="table-clientes">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Nome</th>
+              <th>E-mail</th>
+              <th>CPF / CNPJ</th>
+              <th>Telefone</th>
+              <th>Newsletter</th>
+              <th>Cadastro</th>
+              <th>Ações</th>
+            </tr>
+          </thead>
+          <tbody id="tbody-clientes"></tbody>
+        </table>
+        <p class="adm-empty" id="clientes-vazio" style="display:none">Nenhum cliente cadastrado ainda.</p>
+      </div>
+    </section>
+
+    <!-- ── PEDIDOS ─────────────────────────────────── -->
+    <section class="adm-section" id="sec-pedidos">
+      <div class="adm-sec-header">
+        <h2 class="adm-sec-title">Pedidos</h2>
+        <div class="adm-sec-actions">
+          <select class="adm-select" id="filtro-status">
+            <option value="">Todos os status</option>
+            <option value="Aguardando">Aguardando</option>
+            <option value="Confirmado">Confirmado</option>
+            <option value="Enviado">Enviado</option>
+            <option value="Entregue">Entregue</option>
+            <option value="Cancelado">Cancelado</option>
+          </select>
+          <input type="text" class="adm-search" id="busca-pedidos" placeholder="Buscar pedido...">
+        </div>
+      </div>
+      <div class="adm-table-wrap">
+        <table class="adm-table">
+          <thead>
+            <tr>
+              <th>Nº Pedido</th>
+              <th>Cliente</th>
+              <th>Produtos</th>
+              <th>Total</th>
+              <th>Data</th>
+              <th>Status</th>
+              <th>Ações</th>
+            </tr>
+          </thead>
+          <tbody id="tbody-pedidos"></tbody>
+        </table>
+        <p class="adm-empty" id="pedidos-vazio" style="display:none">Nenhum pedido registrado ainda.</p>
+      </div>
+    </section>
+
+    <!-- ── PRODUTOS ────────────────────────────────── -->
+    <section class="adm-section" id="sec-produtos">
+      <div class="adm-sec-header">
+        <h2 class="adm-sec-title">Produtos</h2>
+        <div class="adm-sec-actions">
+          <input type="text" class="adm-search" id="busca-produtos" placeholder="Buscar produto...">
+          <button class="adm-btn adm-btn--primary" id="btn-novo-produto">
+            <i class="ti ti-plus"></i> Novo Produto
+          </button>
+        </div>
+      </div>
+      <div class="adm-table-wrap">
+        <table class="adm-table">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Nome</th>
+              <th>Categoria</th>
+              <th>Preço</th>
+              <th>Desconto</th>
+              <th>Estoque</th>
+              <th>Status</th>
+              <th>Ações</th>
+            </tr>
+          </thead>
+          <tbody id="tbody-produtos"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ── ANÚNCIOS ─────────────────────────────────── -->
+    <section class="adm-section" id="sec-anuncios">
+
+      <!-- LISTA DE ANÚNCIOS -->
+      <div id="anuncios-list-view">
+        <div class="adm-sec-header">
+          <h2 class="adm-sec-title">Anúncios</h2>
+          <div class="adm-sec-actions">
+            <input type="text" class="adm-search" id="busca-anuncios" placeholder="Buscar anúncio...">
+            <button class="adm-btn adm-btn--yellow" id="btn-importar-ml" title="Importar anúncio do Mercado Livre">
+              <i class="ti ti-brand-mercado-pago"></i> Importar do ML
+            </button>
+            <button class="adm-btn adm-btn--primary" id="btn-novo-anuncio">
+              <i class="ti ti-plus"></i> Novo Anúncio
+            </button>
+          </div>
+        </div>
+        <div class="anuncios-grid" id="anuncios-grid"></div>
+        <p class="adm-empty" id="anuncios-vazio" style="display:none">Nenhum anúncio criado ainda. Clique em "Novo Anúncio" para começar.</p>
+      </div>
+
+      <!-- EDITOR DE ANÚNCIO -->
+      <div id="anuncios-editor-view" style="display:none">
+        <div class="adm-sec-header">
+          <div style="display:flex;align-items:center;gap:10px">
+            <button class="adm-btn" id="btn-voltar-anuncios"><i class="ti ti-arrow-left"></i> Voltar</button>
+            <h2 class="adm-sec-title" id="editor-anuncio-titulo">Novo Anúncio</h2>
+          </div>
+          <div class="adm-sec-actions">
+            <span class="adm-save-msg" id="anuncio-save-msg"></span>
+            <button class="adm-btn adm-btn--primary" id="btn-salvar-anuncio">
+              <i class="ti ti-device-floppy"></i> Salvar Anúncio
+            </button>
+          </div>
+        </div>
+
+        <div class="anuncio-editor-layout">
+
+          <!-- COLUNA ESQUERDA: FORMULÁRIO -->
+          <div class="anuncio-editor-form">
+
+            <!-- FOTOS -->
+            <div class="adm-widget">
+              <div class="adm-widget-header"><strong><i class="ti ti-photo"></i> Fotos do Produto</strong><small style="color:#999;font-size:11px">A primeira foto será a capa</small></div>
+              <div class="anuncio-fotos-wrap">
+                <div class="anuncio-fotos-grid" id="anuncio-fotos-grid"></div>
+                <div class="anuncio-fotos-actions">
+                  <input type="file" id="anuncio-file-input" accept="image/*" multiple style="display:none">
+                  <button class="adm-btn" id="btn-upload-foto"><i class="ti ti-upload"></i> Upload do PC</button>
+                  <div class="anuncio-url-row">
+                    <input type="text" class="adm-input-inline" id="anuncio-url-input" placeholder="Ou cole a URL da imagem...">
+                    <button class="adm-btn" id="btn-add-foto-url"><i class="ti ti-link"></i> Adicionar</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- INFORMAÇÕES GERAIS -->
+            <div class="adm-widget">
+              <div class="adm-widget-header"><strong><i class="ti ti-info-circle"></i> Informações Gerais</strong></div>
+              <div class="adm-config-form" style="padding:16px">
+                <div class="adm-form-group">
+                  <label>Título do Anúncio *</label>
+                  <input type="text" id="an-titulo" placeholder="Ex: Curso PAY ATTENTION!">
+                </div>
+                <div class="adm-row-2">
+                  <div class="adm-form-group">
+                    <label>Categoria</label>
+                    <select id="an-categoria">
+                      <option>Protocolos</option>
+                      <option>Cursos</option>
+                      <option>Ebooks</option>
+                    </select>
+                  </div>
+                  <div class="adm-form-group">
+                    <label>Status</label>
+                    <select id="an-status">
+                      <option value="ativo">Ativo</option>
+                      <option value="destaque">Destaque</option>
+                      <option value="inativo">Inativo</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="adm-row-2">
+                  <div class="adm-form-group">
+                    <label>Marca</label>
+                    <input type="text" id="an-marca" placeholder="Ex: Hogrefe">
+                  </div>
+                  <div class="adm-form-group">
+                    <label>Linha</label>
+                    <input type="text" id="an-linha" placeholder="Ex: Protocolos Clínicos, Formação Continuada...">
+                  </div>
+                </div>
+                <div class="adm-row-2">
+                  <div class="adm-form-group">
+                    <label>Modelo</label>
+                    <input type="text" id="an-modelo" placeholder="Ex: Edição 2026">
+                  </div>
+                  <div class="adm-form-group">
+                    <label>Modelo Alfanumérico</label>
+                    <input type="text" id="an-modelo-alfa" placeholder="Ex: PA-2026-01">
+                  </div>
+                </div>
+                <div class="adm-row-2">
+                  <div class="adm-form-group">
+                    <label>Preço (R$) *</label>
+                    <input type="number" id="an-preco" step="0.01" min="0" placeholder="0,00">
+                  </div>
+                  <div class="adm-form-group">
+                    <label>Desconto (%)</label>
+                    <input type="number" id="an-desconto" min="0" max="100" value="0">
+                  </div>
+                </div>
+                <div class="adm-row-2">
+                  <div class="adm-form-group">
+                    <label>Estoque</label>
+                    <input type="number" id="an-estoque" min="0" value="0">
+                  </div>
+                  <div class="adm-form-group">
+                    <label>Fabricante</label>
+                    <input type="text" id="an-fabricante" placeholder="Ex: Editora Hogrefe">
+                  </div>
+                </div>
+                <div class="adm-form-group">
+                  <label>Descrição do Produto</label>
+                  <textarea id="an-descricao" rows="4" placeholder="Descreva o produto, seus diferenciais, indicações de uso..."></textarea>
+                </div>
+              </div>
+            </div>
+
+            <!-- CHECKOUT KIWIFY (produto digital) -->
+            <div class="adm-widget">
+              <div class="adm-widget-header"><strong><i class="ti ti-shopping-bag-check" style="color:#7b3fe4"></i> Checkout Kiwify</strong><small style="color:#999;font-size:11px">Produto digital vendido pela Kiwify</small></div>
+              <div class="adm-config-form" style="padding:16px">
+                <div class="adm-form-group">
+                  <label>Link de Checkout do Produto na Kiwify</label>
+                  <input type="text" id="an-kiwify-checkout-url" placeholder="https://pay.kiwify.com.br/xxxxxxx">
+                  <small style="color:#888">Se preenchido, o botão "Comprar agora" leva o cliente direto para pagar na Kiwify, em vez do checkout interno.</small>
+                </div>
+              </div>
+            </div>
+
+            <!-- DETALHES DO CURSO -->
+            <div class="adm-widget">
+              <div class="adm-widget-header"><strong><i class="ti ti-school"></i> Detalhes do Curso</strong></div>
+              <div class="adm-config-form" style="padding:16px">
+                <div class="adm-row-2">
+                  <div class="adm-form-group"><label>Formato</label><input type="text" id="an-formato" placeholder="Ex: Digital, PDF, Videoaulas..."></div>
+                  <div class="adm-form-group"><label>Carga Horária</label><input type="text" id="an-carga-horaria" placeholder="Ex: 20h"></div>
+                </div>
+                <div class="adm-row-2">
+                  <div class="adm-form-group"><label>Nível</label><input type="text" id="an-nivel" placeholder="Ex: Iniciante, Intermediário..."></div>
+                  <div class="adm-form-group"><label>Certificado</label><select id="an-certificado"><option value="">—</option><option value="sim">Sim</option><option value="nao">Não</option></select></div>
+                </div>
+              </div>
+            </div>
+
+          </div><!-- /anuncio-editor-form -->
+
+          <!-- COLUNA DIREITA: PRÉVIA -->
+          <div class="anuncio-preview-col">
+            <div class="adm-widget anuncio-preview-sticky">
+              <div class="adm-widget-header"><strong><i class="ti ti-eye"></i> Prévia do Card</strong></div>
+              <div class="anuncio-preview-card" id="anuncio-preview-card">
+                <div class="prev-img" id="prev-img"><i class="ti ti-photo" style="font-size:40px;color:#ccc"></i></div>
+                <div class="prev-body">
+                  <div class="prev-marca" id="prev-marca">Marca</div>
+                  <div class="prev-nome" id="prev-nome">Nome do produto</div>
+                  <div class="prev-preco-wrap">
+                    <span class="prev-preco" id="prev-preco">R$ 0,00</span>
+                    <span class="prev-desc" id="prev-desc" style="display:none"></span>
+                  </div>
+                  <div class="prev-status" id="prev-status"></div>
+                </div>
+              </div>
+              <div style="padding:12px 16px;border-top:1px solid #f0f0f0">
+                <p style="font-size:11px;color:#999;text-align:center">Esta prévia mostra como o card aparecerá na loja</p>
+              </div>
+            </div>
+          </div>
+
+        </div><!-- /anuncio-editor-layout -->
+      </div><!-- /anuncios-editor-view -->
+
+    </section>
+
+    <!-- ── CRM ───────────────────────────────────────── -->
+    <section class="adm-section" id="sec-crm">
+      <h2 class="adm-sec-title">CRM – Gestão de Relacionamento</h2>
+
+      <!-- Abas CRM -->
+      <div class="crm-tabs">
+        <button class="crm-tab active" data-tab="funil">Funil de Vendas</button>
+        <button class="crm-tab" data-tab="atendimento">Atendimento</button>
+        <button class="crm-tab" data-tab="marketing">Marketing</button>
+        <button class="crm-tab" data-tab="ferramentas">Ferramentas</button>
+      </div>
+
+      <!-- Funil de Vendas -->
+      <div class="crm-panel active" id="crm-funil">
+        <div class="crm-intro">
+          <i class="ti ti-filter" style="font-size:2rem;color:#f57c00"></i>
+          <div>
+            <h3>Monitoramento do Funil de Negociações</h3>
+            <p>Acompanhe cada etapa — desde o primeiro contato até o fechamento — com registro automático de ligações e envio de propostas.</p>
+          </div>
+        </div>
+
+        <div class="crm-kanban" id="crm-kanban">
+          <div class="crm-col" data-stage="contato">
+            <div class="crm-col-header" style="background:#1565c0">
+              <span>Primeiro Contato</span>
+              <span class="crm-col-count" id="count-contato">0</span>
+            </div>
+            <div class="crm-col-body" id="col-contato"></div>
+            <button class="crm-add-card" onclick="abrirModalLead('contato')"><i class="ti ti-plus"></i> Adicionar</button>
+          </div>
+          <div class="crm-col" data-stage="proposta">
+            <div class="crm-col-header" style="background:#6a1b9a">
+              <span>Proposta Enviada</span>
+              <span class="crm-col-count" id="count-proposta">0</span>
+            </div>
+            <div class="crm-col-body" id="col-proposta"></div>
+            <button class="crm-add-card" onclick="abrirModalLead('proposta')"><i class="ti ti-plus"></i> Adicionar</button>
+          </div>
+          <div class="crm-col" data-stage="negociacao">
+            <div class="crm-col-header" style="background:#e65100">
+              <span>Negociação</span>
+              <span class="crm-col-count" id="count-negociacao">0</span>
+            </div>
+            <div class="crm-col-body" id="col-negociacao"></div>
+            <button class="crm-add-card" onclick="abrirModalLead('negociacao')"><i class="ti ti-plus"></i> Adicionar</button>
+          </div>
+          <div class="crm-col" data-stage="fechado">
+            <div class="crm-col-header" style="background:#2e7d32">
+              <span>Fechado</span>
+              <span class="crm-col-count" id="count-fechado">0</span>
+            </div>
+            <div class="crm-col-body" id="col-fechado"></div>
+            <button class="crm-add-card" onclick="abrirModalLead('fechado')"><i class="ti ti-plus"></i> Adicionar</button>
+          </div>
+          <div class="crm-col" data-stage="perdido">
+            <div class="crm-col-header" style="background:#c62828">
+              <span>Perdido</span>
+              <span class="crm-col-count" id="count-perdido">0</span>
+            </div>
+            <div class="crm-col-body" id="col-perdido"></div>
+            <button class="crm-add-card" onclick="abrirModalLead('perdido')"><i class="ti ti-plus"></i> Adicionar</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Atendimento -->
+      <div class="crm-panel" id="crm-atendimento">
+
+        <!-- Hero -->
+        <div class="atd-hero">
+          <div class="atd-hero-left">
+            <div class="atd-hero-icon"><i class="ti ti-headset"></i></div>
+            <div>
+              <div class="atd-hero-title">Central de Atendimento</div>
+              <div class="atd-hero-sub">Histórico unificado — o atendente sabe tudo que foi resolvido antes de atender.</div>
+            </div>
+          </div>
+          <button class="atd-btn-novo" onclick="abrirModalChamado()">
+            <i class="ti ti-plus"></i> Novo Chamado
+          </button>
+        </div>
+
+        <!-- Stats rápidos -->
+        <div class="atd-stats">
+          <div class="atd-stat" id="atd-stat-aberto"   style="--c:#ef4444">
+            <i class="ti ti-alert-circle"></i>
+            <div><strong id="cnt-aberto">0</strong><span>Abertos</span></div>
+          </div>
+          <div class="atd-stat" id="atd-stat-andamento" style="--c:#f59e0b">
+            <i class="ti ti-clock"></i>
+            <div><strong id="cnt-andamento">0</strong><span>Em andamento</span></div>
+          </div>
+          <div class="atd-stat" id="atd-stat-resolvido" style="--c:#10b981">
+            <i class="ti ti-circle-check"></i>
+            <div><strong id="cnt-resolvido">0</strong><span>Resolvidos</span></div>
+          </div>
+          <div class="atd-stat" style="--c:#6366f1">
+            <i class="ti ti-list"></i>
+            <div><strong id="cnt-total">0</strong><span>Total</span></div>
+          </div>
+        </div>
+
+        <!-- Barra de busca + filtro status -->
+        <div class="atd-toolbar">
+          <div class="atd-search-wrap">
+            <i class="ti ti-search"></i>
+            <input type="text" id="atend-busca" class="atd-search" placeholder="Buscar por cliente ou assunto..." oninput="filtrarChamados()">
+          </div>
+          <div class="atd-filter-pills">
+            <button class="atd-filter active" data-filter="todos"     onclick="filtrarChamadosStatus(this)">Todos</button>
+            <button class="atd-filter"        data-filter="aberto"    onclick="filtrarChamadosStatus(this)">Abertos</button>
+            <button class="atd-filter"        data-filter="andamento" onclick="filtrarChamadosStatus(this)">Em andamento</button>
+            <button class="atd-filter"        data-filter="resolvido" onclick="filtrarChamadosStatus(this)">Resolvidos</button>
+          </div>
+        </div>
+
+        <!-- Lista de chamados (cards) -->
+        <div id="atd-lista-chamados" class="atd-lista">
+          <div class="atd-vazio"><i class="ti ti-inbox"></i><span>Nenhum chamado registrado ainda.</span></div>
+        </div>
+
+      </div>
+
+      <!-- Marketing -->
+      <div class="crm-panel" id="crm-marketing">
+
+        <!-- Banner header -->
+        <div class="mkt-hero">
+          <div class="mkt-hero-icon"><i class="ti ti-mail-bolt"></i></div>
+          <div>
+            <h3 class="mkt-hero-title">Marketing por E-mail</h3>
+            <p class="mkt-hero-sub">Envie campanhas segmentadas com base no comportamento dos seus clientes e acompanhe os resultados em tempo real.</p>
+          </div>
+        </div>
+
+        <!-- Cards de métricas -->
+        <div class="mkt-stats">
+          <div class="mkt-stat-card" style="--accent:#1565c0">
+            <div class="mkt-stat-icon"><i class="ti ti-users"></i></div>
+            <div class="mkt-stat-info">
+              <strong id="mkt-total-clientes">0</strong>
+              <span>Clientes cadastrados</span>
+            </div>
+          </div>
+          <div class="mkt-stat-card" style="--accent:#2e7d32">
+            <div class="mkt-stat-icon"><i class="ti ti-mail-forward"></i></div>
+            <div class="mkt-stat-info">
+              <strong id="mkt-emails-enviados">0</strong>
+              <span>Campanhas disparadas</span>
+            </div>
+          </div>
+          <div class="mkt-stat-card" style="--accent:#f57c00">
+            <div class="mkt-stat-icon"><i class="ti ti-eye"></i></div>
+            <div class="mkt-stat-info">
+              <strong id="mkt-taxa-abertura">–</strong>
+              <span>Taxa de abertura</span>
+            </div>
+          </div>
+          <div class="mkt-stat-card" style="--accent:#6a1b9a">
+            <div class="mkt-stat-icon"><i class="ti ti-click"></i></div>
+            <div class="mkt-stat-info">
+              <strong>–</strong>
+              <span>Taxa de cliques</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Formulário de campanha -->
+        <div class="mkt-form-card">
+          <div class="mkt-form-header">
+            <i class="ti ti-rocket"></i>
+            <div>
+              <div class="mkt-form-header-title">Nova Campanha</div>
+              <div class="mkt-form-header-sub">Preencha os campos e dispare para o segmento escolhido</div>
+            </div>
+          </div>
+
+          <div class="mkt-form-body">
+            <!-- Segmento (chips) -->
+            <div class="mkt-form-group">
+              <label class="mkt-label">Segmento de envio</label>
+              <div class="mkt-segment-pills">
+                <label class="mkt-seg-pill">
+                  <input type="radio" name="mkt-seg" value="todos" checked>
+                  <span><i class="ti ti-users"></i> Todos os clientes</span>
+                </label>
+                <label class="mkt-seg-pill">
+                  <input type="radio" name="mkt-seg" value="novos">
+                  <span><i class="ti ti-user-plus"></i> Novos (30 dias)</span>
+                </label>
+                <label class="mkt-seg-pill">
+                  <input type="radio" name="mkt-seg" value="inativos">
+                  <span><i class="ti ti-user-off"></i> Inativos (60+ dias)</span>
+                </label>
+              </div>
+              <select id="mkt-segmento" style="display:none">
+                <option value="todos">Todos os clientes</option>
+                <option value="novos">Novos (últimos 30 dias)</option>
+                <option value="inativos">Inativos (sem compra há 60+ dias)</option>
+              </select>
+            </div>
+
+            <!-- Assunto -->
+            <div class="mkt-form-group">
+              <label class="mkt-label" for="mkt-assunto">Assunto do e-mail</label>
+              <div class="mkt-input-wrap">
+                <i class="ti ti-mail"></i>
+                <input type="text" id="mkt-assunto" class="mkt-input" placeholder="Ex: Oferta especial só para você!">
+              </div>
+            </div>
+
+            <!-- Conteúdo -->
+            <div class="mkt-form-group">
+              <label class="mkt-label" for="mkt-corpo">Conteúdo da mensagem</label>
+              <textarea id="mkt-corpo" class="mkt-textarea" rows="5" placeholder="Olá {nome}, temos uma oferta especial..."></textarea>
+            </div>
+
+            <div class="mkt-form-actions">
+              <span class="mkt-preview-hint"><i class="ti ti-info-circle"></i> Use {nome} para personalizar com o nome do cliente</span>
+              <button class="mkt-btn-send" onclick="dispararCampanha()">
+                <i class="ti ti-send"></i> Disparar Campanha
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Histórico de campanhas -->
+        <div class="mkt-history-card">
+          <div class="mkt-history-header">
+            <i class="ti ti-history"></i> Histórico de Campanhas
+          </div>
+          <div id="mkt-historico-lista" class="mkt-history-body">
+            <div class="mkt-history-empty"><i class="ti ti-mail-off"></i><span>Nenhuma campanha disparada ainda.</span></div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Ferramentas -->
+      <div class="crm-panel" id="crm-ferramentas">
+
+        <!-- Integração Kiwify -->
+        <div class="crm-intro">
+          <i class="ti ti-plug-connected" style="font-size:2rem;color:#7b3fe4"></i>
+          <div>
+            <h3>Integração com a Kiwify</h3>
+            <p>Toda venda aprovada na Kiwify cai automaticamente no funil, na coluna "Fechado".</p>
+          </div>
+        </div>
+        <div class="crm-kiwify-box">
+          <div class="crm-kiwify-status">
+            <span id="kiwify-status-dot" class="crm-kiwify-dot"></span>
+            <strong id="kiwify-status-texto">Verificando conexão…</strong>
+          </div>
+          <label style="font-size:.8rem;font-weight:700;color:#555;display:block;margin:14px 0 4px">URL do Webhook (cole na Kiwify em Configurações &gt; Webhooks)</label>
+          <div class="crm-kiwify-url-row">
+            <input type="text" id="kiwify-webhook-url" readonly>
+            <button type="button" class="adm-btn" onclick="copiarWebhookKiwify()"><i class="ti ti-copy"></i> Copiar</button>
+          </div>
+          <p class="crm-kiwify-hint">Selecione os eventos de <strong>pedido pago</strong>, <strong>reembolsado</strong> e <strong>chargeback</strong> na Kiwify. O token de segurança já está incluso na URL acima (configurado no <code>.env</code> como <code>KIWIFY_WEBHOOK_TOKEN</code>).</p>
+
+          <hr style="border:none;border-top:1px solid #eee;margin:18px 0">
+
+          <div class="crm-kiwify-status">
+            <span id="kiwify-api-status-dot" class="crm-kiwify-dot"></span>
+            <strong id="kiwify-api-status-texto">Verificando API de pagamentos…</strong>
+          </div>
+          <p class="crm-kiwify-hint">
+            Além do webhook, o painel pode consultar diretamente a <strong>API oficial de vendas da Kiwify</strong> — útil para conferir pagamentos e importar vendas antigas.
+            Gere as credenciais em Kiwify &gt; Configurações &gt; API do desenvolvedor e preencha no <code>.env</code>: <code>KIWIFY_CLIENT_ID</code>, <code>KIWIFY_CLIENT_SECRET</code> e <code>KIWIFY_ACCOUNT_ID</code>.
+          </p>
+          <button type="button" class="adm-btn adm-btn--primary" id="btn-importar-vendas-kiwify" onclick="importarVendasKiwify()">
+            <i class="ti ti-download"></i> Importar vendas da Kiwify agora
+          </button>
+          <span class="adm-save-msg" id="kiwify-importar-msg" style="margin-left:10px"></span>
+        </div>
+
+        <div class="crm-intro" style="margin-top:32px">
+          <i class="ti ti-tools" style="font-size:2rem;color:#37474f"></i>
+          <div>
+            <h3>Principais Plataformas de CRM</h3>
+            <p>Conheça as ferramentas líderes de mercado e quando usar cada uma.</p>
+          </div>
+        </div>
+        <div class="crm-ferramentas-grid">
+          <div class="crm-ferr-card">
+            <div class="crm-ferr-icon" style="background:#00a1e0">SF</div>
+            <div>
+              <strong>Salesforce</strong>
+              <p>Robusto e global. Ideal para médias e grandes empresas com necessidade de alta personalização e inteligência artificial.</p>
+              <span class="crm-badge crm-badge-enterprise">Enterprise</span>
+            </div>
+          </div>
+          <div class="crm-ferr-card">
+            <div class="crm-ferr-icon" style="background:#ff7a59">HS</div>
+            <div>
+              <strong>HubSpot CRM</strong>
+              <p>Ferramentas gratuitas ou de entrada. Focado em automação de marketing e inbound marketing para PMEs.</p>
+              <span class="crm-badge crm-badge-free">Freemium</span>
+            </div>
+          </div>
+          <div class="crm-ferr-card">
+            <div class="crm-ferr-icon" style="background:#17a44c">PD</div>
+            <div>
+              <strong>Pipedrive</strong>
+              <p>Gestão visual de funil de vendas. Excelente para equipes comerciais que precisam de interface simples e intuitiva.</p>
+              <span class="crm-badge crm-badge-pro">Pro</span>
+            </div>
+          </div>
+          <div class="crm-ferr-card">
+            <div class="crm-ferr-icon" style="background:#0077cc">RD</div>
+            <div>
+              <strong>RD Station CRM</strong>
+              <p>Solução brasileira popular. Integra perfeitamente com automação de marketing da própria plataforma RD.</p>
+              <span class="crm-badge crm-badge-br">Brasil</span>
+            </div>
+          </div>
+          <div class="crm-ferr-card">
+            <div class="crm-ferr-icon" style="background:#f5a623">AG</div>
+            <div>
+              <strong>Agendor</strong>
+              <p>Plataforma brasileira focada em vendas. Muito útil para gestão de representantes comerciais e equipe de campo.</p>
+              <span class="crm-badge crm-badge-br">Brasil</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Modal Lead / Negociação -->
+    <!-- Modal Lead -->
+    <div class="adm-modal-overlay" id="modal-lead" style="display:none">
+      <div class="crm-modal-box">
+        <!-- Header gradiente -->
+        <div class="crm-modal-header">
+          <div class="crm-modal-icon"><i class="ti ti-user-plus"></i></div>
+          <div>
+            <div class="crm-modal-title" id="modal-lead-titulo">Novo Lead</div>
+            <div class="crm-modal-sub">Cadastre um novo contato no funil</div>
+          </div>
+          <button onclick="fecharModalLead()" class="crm-modal-close"><i class="ti ti-x"></i></button>
+        </div>
+
+        <div class="crm-modal-body">
+          <input type="hidden" id="lead-id">
+
+          <!-- Etapa -->
+          <div class="crm-field-label">Etapa do funil</div>
+          <div class="crm-stage-pills" id="lead-stage-pills">
+            <button type="button" class="crm-pill active" data-val="contato"   onclick="selecionarPill(this)">Primeiro Contato</button>
+            <button type="button" class="crm-pill"        data-val="proposta"  onclick="selecionarPill(this)">Proposta</button>
+            <button type="button" class="crm-pill"        data-val="negociacao"onclick="selecionarPill(this)">Negociação</button>
+            <button type="button" class="crm-pill"        data-val="fechado"   onclick="selecionarPill(this)">Fechado</button>
+            <button type="button" class="crm-pill"        data-val="perdido"   onclick="selecionarPill(this)">Perdido</button>
+          </div>
+          <input type="hidden" id="lead-stage" value="contato">
+
+          <!-- Linha 1 -->
+          <div class="crm-field-row">
+            <div class="crm-field crm-field-full">
+              <label class="crm-field-label">Nome do cliente <span style="color:#ef4444">*</span></label>
+              <div class="crm-input-wrap">
+                <i class="ti ti-user"></i>
+                <input type="text" id="lead-nome" class="crm-input" placeholder="Ex: João Silva">
+              </div>
+            </div>
+          </div>
+
+          <!-- Linha 2 -->
+          <div class="crm-field-row">
+            <div class="crm-field">
+              <label class="crm-field-label">E-mail</label>
+              <div class="crm-input-wrap">
+                <i class="ti ti-mail"></i>
+                <input type="email" id="lead-email" class="crm-input" placeholder="email@exemplo.com">
+              </div>
+            </div>
+            <div class="crm-field">
+              <label class="crm-field-label">Telefone / WhatsApp</label>
+              <div class="crm-input-wrap">
+                <i class="ti ti-phone"></i>
+                <input type="tel" id="lead-tel" class="crm-input" placeholder="(11) 9 0000-0000">
+              </div>
+            </div>
+          </div>
+
+          <!-- Linha 3 -->
+          <div class="crm-field-row">
+            <div class="crm-field">
+              <label class="crm-field-label">Produto / Serviço</label>
+              <div class="crm-input-wrap">
+                <i class="ti ti-package"></i>
+                <input type="text" id="lead-produto" class="crm-input" placeholder="Ex: Ar-condicionado Split">
+              </div>
+            </div>
+            <div class="crm-field">
+              <label class="crm-field-label">Valor estimado (R$)</label>
+              <div class="crm-input-wrap">
+                <i class="ti ti-currency-dollar"></i>
+                <input type="number" id="lead-valor" class="crm-input" placeholder="0,00" min="0" step="0.01">
+              </div>
+            </div>
+          </div>
+
+          <!-- Observações -->
+          <div class="crm-field crm-field-full">
+            <label class="crm-field-label">Observações / Histórico</label>
+            <textarea id="lead-obs" class="crm-textarea" rows="3" placeholder="Registre aqui o histórico de contatos, ligações ou negociações..."></textarea>
+          </div>
+        </div>
+
+        <div class="crm-modal-footer">
+          <button class="crm-btn-cancel" onclick="fecharModalLead()"><i class="ti ti-x"></i> Cancelar</button>
+          <button class="crm-btn-save"   onclick="salvarLead()"><i class="ti ti-device-floppy"></i> Salvar Lead</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal Chamado -->
+    <div class="adm-modal-overlay" id="modal-chamado" style="display:none">
+      <div class="crm-modal-box">
+        <div class="crm-modal-header" style="background:linear-gradient(135deg,#1565c0,#0d47a1)">
+          <div class="crm-modal-icon"><i class="ti ti-headset"></i></div>
+          <div>
+            <div class="crm-modal-title">Novo Chamado</div>
+            <div class="crm-modal-sub">Registre o atendimento ao cliente</div>
+          </div>
+          <button onclick="fecharModalChamado()" class="crm-modal-close"><i class="ti ti-x"></i></button>
+        </div>
+        <div class="crm-modal-body">
+          <div class="crm-field-row">
+            <div class="crm-field crm-field-full">
+              <label class="crm-field-label">Cliente <span style="color:#ef4444">*</span></label>
+              <div class="crm-input-wrap">
+                <i class="ti ti-user"></i>
+                <input type="text" id="cham-cliente" class="crm-input" placeholder="Nome do cliente">
+              </div>
+            </div>
+          </div>
+          <div class="crm-field-row">
+            <div class="crm-field">
+              <label class="crm-field-label">Assunto <span style="color:#ef4444">*</span></label>
+              <div class="crm-input-wrap">
+                <i class="ti ti-message"></i>
+                <input type="text" id="cham-assunto" class="crm-input" placeholder="Ex: Produto não chegou">
+              </div>
+            </div>
+            <div class="crm-field">
+              <label class="crm-field-label">Status</label>
+              <div class="crm-input-wrap">
+                <i class="ti ti-list-check"></i>
+                <select id="cham-status" class="crm-input">
+                  <option value="aberto">Aberto</option>
+                  <option value="andamento">Em andamento</option>
+                  <option value="resolvido">Resolvido</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="crm-field crm-field-full">
+            <label class="crm-field-label">Descrição / Histórico anterior</label>
+            <textarea id="cham-desc" class="crm-textarea" rows="4" placeholder="Descreva o problema e o que já foi feito..."></textarea>
+          </div>
+        </div>
+        <div class="crm-modal-footer">
+          <button class="crm-btn-cancel" onclick="fecharModalChamado()"><i class="ti ti-x"></i> Cancelar</button>
+          <button class="crm-btn-save"   onclick="salvarChamado()"><i class="ti ti-device-floppy"></i> Salvar Chamado</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── CONFIGURAÇÕES ───────────────────────────── -->
+    <section class="adm-section" id="sec-config">
+      <h2 class="adm-sec-title">Configurações da Loja</h2>
+      <div class="adm-config-grid">
+
+        <div class="adm-widget">
+          <div class="adm-widget-header"><strong><i class="ti ti-building-store"></i> Dados da Loja</strong></div>
+          <form id="form-loja" class="adm-config-form">
+            <div class="adm-form-group">
+              <label>Nome da Loja</label>
+              <input type="text" name="nomeLoja" value="ALL.ECOM Equipamentos">
+            </div>
+            <div class="adm-form-group">
+              <label>CNPJ</label>
+              <input type="text" name="cnpj" value="00.000.000/0001-00">
+            </div>
+            <div class="adm-form-group">
+              <label>E-mail de Contato</label>
+              <input type="email" name="emailContato" value="sac@allecom.com.br">
+            </div>
+            <div class="adm-form-group">
+              <label>Telefone</label>
+              <input type="text" name="telefone" value="(48) 3533-0660">
+            </div>
+            <div class="adm-form-group">
+              <label>WhatsApp</label>
+              <input type="text" name="whatsapp" value="(48) 9 9999-0000">
+            </div>
+            <div class="adm-form-group">
+              <label>Endereço</label>
+              <input type="text" name="endereco" value="Criciúma – SC">
+            </div>
+            <div class="adm-form-group">
+              <label>Valor mínimo Frete Grátis (R$)</label>
+              <input type="number" name="freteGratis" value="800">
+            </div>
+            <button type="submit" class="adm-btn adm-btn--primary">Salvar Dados</button>
+            <p class="adm-config-msg" id="msg-loja"></p>
+          </form>
+        </div>
+
+        <div class="adm-widget">
+          <div class="adm-widget-header"><strong><i class="ti ti-lock"></i> Segurança</strong></div>
+          <form id="form-senha" class="adm-config-form">
+            <div class="adm-form-group">
+              <label>Usuário Admin</label>
+              <input type="text" name="adminUser" id="cfg-admin-user">
+            </div>
+            <div class="adm-form-group">
+              <label>Senha Atual</label>
+              <input type="password" name="senhaAtual" placeholder="••••••••">
+            </div>
+            <div class="adm-form-group">
+              <label>Nova Senha</label>
+              <input type="password" name="novaSenha" placeholder="Mínimo 6 caracteres">
+            </div>
+            <div class="adm-form-group">
+              <label>Confirmar Nova Senha</label>
+              <input type="password" name="novaSenha2" placeholder="Repita a nova senha">
+            </div>
+            <button type="submit" class="adm-btn adm-btn--primary">Atualizar Credenciais</button>
+            <p class="adm-config-msg" id="msg-senha"></p>
+          </form>
+        </div>
+
+        <div class="adm-widget">
+          <div class="adm-widget-header"><strong><i class="ti ti-brand-mercado-pago"></i> Mercado Livre</strong></div>
+          <div class="adm-config-form">
+            <div id="ml-status-box" style="display:flex;align-items:center;gap:10px;padding:10px;background:#f9fafb;border-radius:8px;margin-bottom:12px">
+              <div id="ml-status-dot" style="width:10px;height:10px;border-radius:50%;background:#d1d5db;flex-shrink:0"></div>
+              <span id="ml-status-txt" style="font-size:13px;color:#6b7280">Verificando conexão...</span>
+            </div>
+            <button class="adm-btn adm-btn--primary" id="btn-ml-conectar" style="width:100%">
+              <i class="ti ti-brand-mercado-pago"></i> Conectar com Mercado Livre
+            </button>
+            <button class="adm-btn" id="btn-ml-desconectar" style="width:100%;margin-top:8px;display:none">
+              <i class="ti ti-unlink"></i> Desconectar conta
+            </button>
+            <p class="adm-config-msg" id="msg-ml"></p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<!-- MODAL PRODUTO -->
+<div id="modal-produto" style="display:none" class="adm-modal-overlay">
+  <div class="adm-modal-box">
+    <div class="adm-modal-header">
+      <strong id="modal-produto-title">Novo Produto</strong>
+      <button class="adm-modal-close" id="btn-fechar-produto"><i class="ti ti-x"></i></button>
+    </div>
+    <form id="form-produto" class="adm-config-form">
+      <input type="hidden" name="id">
+
+      <!-- INFORMAÇÕES GERAIS -->
+      <p class="adm-section-label">Informações Gerais</p>
+      <div class="adm-form-group">
+        <label>Nome do Produto *</label>
+        <input type="text" name="nome" required>
+      </div>
+      <div class="adm-row-2">
+        <div class="adm-form-group">
+          <label>Categoria</label>
+          <select name="categoria">
+            <option>Protocolos</option>
+            <option>Cursos</option>
+            <option>Ebooks</option>
+          </select>
+        </div>
+        <div class="adm-form-group">
+          <label>Marca</label>
+          <input type="text" name="marca" placeholder="Ex: Hogrefe">
+        </div>
+      </div>
+      <div class="adm-row-2">
+        <div class="adm-form-group">
+          <label>Status</label>
+          <select name="status">
+            <option value="ativo">Ativo</option>
+            <option value="inativo">Inativo</option>
+          </select>
+        </div>
+      </div>
+      <div class="adm-row-2">
+        <div class="adm-form-group">
+          <label>Preço (R$) *</label>
+          <input type="number" name="preco" step="0.01" min="0" required>
+        </div>
+        <div class="adm-form-group">
+          <label>Desconto (%)</label>
+          <input type="number" name="desconto" min="0" max="100" value="0">
+        </div>
+      </div>
+      <div class="adm-row-2">
+        <div class="adm-form-group">
+          <label>Estoque</label>
+          <input type="number" name="estoque" min="0" value="0">
+        </div>
+        <div class="adm-form-group">
+          <label>URL da Imagem</label>
+          <input type="text" name="imagem" placeholder="https://...">
+        </div>
+      </div>
+      <div class="adm-form-group">
+        <label>Descrição</label>
+        <textarea name="descricao" rows="3" placeholder="Descrição do produto..."></textarea>
+      </div>
+
+      <div class="adm-modal-footer">
+        <button type="button" class="adm-btn" id="btn-cancelar-produto">Cancelar</button>
+        <button type="submit" class="adm-btn adm-btn--primary">Salvar Produto</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- MODAL CONFIRMAR EXCLUSÃO -->
+<div id="modal-confirmar" style="display:none" class="adm-modal-overlay">
+  <div class="adm-modal-box adm-modal-box--sm">
+    <div class="adm-modal-header">
+      <strong>Confirmar exclusão</strong>
+    </div>
+    <p style="padding:20px 24px;color:#555">Tem certeza que deseja excluir este registro? Esta ação não pode ser desfeita.</p>
+    <div class="adm-modal-footer">
+      <button class="adm-btn" id="btn-cancel-del">Cancelar</button>
+      <button class="adm-btn adm-btn--danger" id="btn-confirm-del">Excluir</button>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL IMPORTAR DO ML -->
+<div id="modal-importar-ml" style="display:none" class="adm-modal-overlay">
+  <div class="adm-modal-box" style="max-width:680px;width:95%">
+    <div class="adm-modal-header">
+      <strong><i class="ti ti-brand-mercado-pago"></i> Importar Anúncio do Mercado Livre</strong>
+      <button class="adm-modal-close" id="btn-fechar-importar-ml"><i class="ti ti-x"></i></button>
+    </div>
+    <div style="padding:16px">
+      <div style="display:flex;gap:8px;margin-bottom:16px">
+        <input type="text" id="ml-busca-input" class="adm-search" style="flex:1" placeholder="Buscar nos seus anúncios do ML...">
+        <button class="adm-btn adm-btn--primary" id="btn-ml-buscar"><i class="ti ti-search"></i> Buscar</button>
+      </div>
+      <div id="ml-itens-lista" style="display:flex;flex-direction:column;gap:10px;max-height:420px;overflow-y:auto"></div>
+      <p id="ml-itens-vazio" style="display:none;text-align:center;color:#999;padding:24px">Nenhum anúncio encontrado.</p>
+      <p id="ml-itens-erro" style="display:none;color:#ef4444;padding:8px 0"></p>
+      <div id="ml-paginacao" style="display:flex;justify-content:center;gap:8px;margin-top:12px"></div>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4/dist/chart.umd.min.js"></script>
+<script src="js/admin.js"></script>
+</body>
+</html>

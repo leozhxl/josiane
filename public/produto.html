@@ -1,0 +1,262 @@
+﻿<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Produto — ALL.ECOM</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='16' fill='%230038a7'/><text y='.9em' font-size='80' font-family='Arial' font-weight='900' fill='%23ffd700' x='10'>A</text></svg>">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/produto.css">
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="header">
+  <div class="header-inner">
+    <a href="index.html" class="logo">
+      <img src="assets/img/logo-orange.png" alt="Josiane Vargas Psicopedagoga" class="logo-img">
+    </a>
+    <div class="search-wrap">
+      <input type="text" placeholder="O que deseja procurar?" id="search-input">
+      <button aria-label="Buscar" id="search-btn"><i class="ti ti-search"></i></button>
+    </div>
+    <div class="header-actions">
+      <a class="hdr-btn" href="#" data-action="conta">
+        <i class="ti ti-user-circle"></i><span>Minha Conta</span>
+      </a>
+      <a class="cart-wrap" href="#">
+        <i class="ti ti-shopping-cart"></i>
+        <span class="cart-badge" style="display:none">0</span>
+        <span>Carrinho</span>
+      </a>
+    </div>
+  </div>
+</header>
+
+<!-- BREADCRUMB -->
+<div class="prd-breadcrumb">
+  <div class="prd-breadcrumb-inner">
+    <a href="index.html"><i class="ti ti-home"></i> Início</a>
+    <span>/</span>
+    <span id="bc-categoria">Produtos</span>
+    <span>/</span>
+    <span id="bc-nome" class="bc-atual">Carregando...</span>
+  </div>
+</div>
+
+<!-- CONTEÚDO PRINCIPAL -->
+<main class="prd-main-v2">
+
+  <div class="prd-top-v2">
+    <!-- FOTO -->
+    <div class="prd-img-box-v2">
+      <img id="prd-foto-principal" src="" alt="Produto">
+      <span class="prd-zoom-icon"><i class="ti ti-search"></i></span>
+      <div class="prd-badge-desconto" id="prd-badge-desc" style="display:none"></div>
+    </div>
+
+    <!-- INFORMAÇÕES -->
+    <div class="prd-info-v2">
+      <h1 class="prd-nome-v2" id="prd-nome">Carregando...</h1>
+
+      <div class="prd-preco-v2">
+        <span class="prd-preco-de-v2" id="prd-preco-de" style="display:none"></span>
+        <span id="prd-preco-por"></span>
+      </div>
+
+      <div class="prd-estoque-v2" id="prd-estoque-wrap">
+        <span class="estoque-ok"><i class="ti ti-circle-check"></i> Estoque disponível</span>
+      </div>
+
+      <button class="prd-btn-comprar-v2" id="btn-comprar-agora">
+        <i class="ti ti-shopping-bag"></i> Comprar
+      </button>
+
+      <div class="prd-desc-v2" id="prd-descricao"></div>
+    </div>
+  </div>
+
+  <!-- FAIXA DE BENEFÍCIOS -->
+  <div class="prd-features-strip">
+    <div class="prd-feature">
+      <span class="prd-feature-icon"><i class="ti ti-device-laptop"></i></span>
+      <div><strong>Em todos os dispositivos</strong><p>Assista no celular, tablet ou computador.</p></div>
+    </div>
+    <div class="prd-feature">
+      <span class="prd-feature-icon"><i class="ti ti-lock-open"></i></span>
+      <div><strong>Acesso imediato</strong><p>Comece assim que confirmar a inscrição.</p></div>
+    </div>
+    <div class="prd-feature">
+      <span class="prd-feature-icon"><i class="ti ti-certificate"></i></span>
+      <div><strong>Certificado</strong><p>Emissão conforme disponibilidade do curso.</p></div>
+    </div>
+    <div class="prd-feature">
+      <span class="prd-feature-icon"><i class="ti ti-file-description"></i></span>
+      <div><strong>Como citar no relatório</strong><p>Receba um modelo pronto para copiar e usar.</p></div>
+    </div>
+  </div>
+
+  <!-- TABS -->
+  <div class="prd-tabs-wrap">
+    <div class="prd-tabs">
+      <button class="prd-tab active" data-tab="descricao">Descrição</button>
+      <button class="prd-tab" data-tab="avaliacoes">Avaliações (0)</button>
+    </div>
+    <div class="prd-tab-panel" id="prd-tab-descricao">
+      <div id="prd-caracteristicas"></div>
+    </div>
+    <div class="prd-tab-panel" id="prd-tab-avaliacoes" style="display:none">
+      <h2 class="prd-aval-titulo">Avaliações</h2>
+      <div id="prd-aval-lista"></div>
+      <p id="prd-aval-vazio" class="prd-aval-vazio">Não há avaliações ainda.</p>
+      <p class="prd-aval-cta">Seja o primeiro a avaliar &ldquo;<span id="prd-aval-nome-produto"></span>&rdquo;</p>
+      <p class="prd-aval-privacidade">O seu endereço de e-mail não será publicado. Campos obrigatórios são marcados com *</p>
+      <form id="form-avaliacao" class="prd-aval-form">
+        <label class="prd-aval-label">Sua avaliação *</label>
+        <div class="prd-aval-estrelas" id="prd-aval-estrelas">
+          <span data-v="1"><i class="ti ti-star"></i></span>
+          <span data-v="2"><i class="ti ti-star"></i></span>
+          <span data-v="3"><i class="ti ti-star"></i></span>
+          <span data-v="4"><i class="ti ti-star"></i></span>
+          <span data-v="5"><i class="ti ti-star"></i></span>
+        </div>
+        <label class="prd-aval-label" for="aval-texto">Sua avaliação sobre o produto *</label>
+        <textarea id="aval-texto" rows="5" required></textarea>
+        <label class="prd-aval-label" for="aval-nome">Nome *</label>
+        <input type="text" id="aval-nome" required>
+        <label class="prd-aval-label" for="aval-email">E-mail *</label>
+        <input type="email" id="aval-email" required>
+        <label class="prd-aval-check">
+          <input type="checkbox" id="aval-salvar">
+          Salvar meus dados neste navegador para a próxima vez que eu comentar.
+        </label>
+        <button type="submit" class="prd-aval-btn">Enviar</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- PRODUTOS RELACIONADOS -->
+  <div class="prd-relacionados">
+    <h2>Produtos relacionados</h2>
+    <div class="produtos-grid" id="relacionados-grid"></div>
+  </div>
+
+</main>
+
+<!-- DRAWER CARRINHO (reutilizado do index) -->
+<div id="cart-drawer" class="cart-drawer">
+  <div class="cart-header">
+    <span>Meu Carrinho</span>
+    <button id="cart-close" aria-label="Fechar carrinho"><i class="ti ti-x"></i></button>
+  </div>
+  <div id="cart-list"></div>
+  <div class="cart-footer">
+    <div class="cart-total-row"><span>Total</span><strong id="cart-total">R$ 0,00</strong></div>
+    <button class="cart-checkout-btn">Finalizar Compra</button>
+  </div>
+</div>
+<div id="overlay" class="overlay"></div>
+
+<!-- MODAL PAGAMENTO -->
+<div id="modal-pagamento" class="modal">
+  <div class="modal-box" style="max-width:400px">
+    <button class="modal-close" aria-label="Fechar"><i class="ti ti-x"></i></button>
+    <h2 style="margin-bottom:8px"><i class="ti ti-credit-card"></i> Finalizar Compra</h2>
+    <p style="color:#666;font-size:14px;margin-bottom:24px">Escolha como deseja pagar:</p>
+    <button id="btn-pagar-mp" style="width:100%;display:flex;align-items:center;justify-content:center;gap:10px;background:#009ee3;color:#fff;border:none;border-radius:10px;padding:14px;font-size:16px;font-weight:700;cursor:pointer;margin-bottom:12px">
+      <svg viewBox="0 0 24 24" width="24" height="24"><circle cx="12" cy="12" r="11" fill="white"/><path d="M12 5l5.2 9H6.8L12 5z" fill="#009ee3"/></svg>
+      Pagar com Mercado Pago
+    </button>
+    <button id="btn-pagar-local" style="width:100%;background:#f3f4f6;color:#374151;border:1px solid #d1d5db;border-radius:10px;padding:12px;font-size:14px;font-weight:600;cursor:pointer">
+      <i class="ti ti-building-store"></i> Combinar pagamento com a loja
+    </button>
+    <p id="pagamento-msg" style="margin-top:12px;font-size:13px;text-align:center"></p>
+  </div>
+</div>
+
+<!-- MODAL MINHA CONTA -->
+<div id="modal-conta" class="modal">
+  <div class="modal-box">
+    <button class="modal-close" aria-label="Fechar"><i class="ti ti-x"></i></button>
+    <h2><i class="ti ti-user-circle"></i> Minha Conta</h2>
+    <form id="login-form" novalidate>
+      <div class="form-group">
+        <label>E-mail</label>
+        <input type="email" placeholder="seu@email.com" required>
+      </div>
+      <div class="form-group pass-wrap">
+        <label>Senha</label>
+        <input type="password" placeholder="Sua senha">
+        <button type="button" class="eye-toggle"><i class="ti ti-eye"></i></button>
+      </div>
+      <p id="login-msg" style="font-size:13px;margin-bottom:8px"></p>
+      <button type="submit" class="btn-primary">Entrar</button>
+    </form>
+    <p style="text-align:center;margin-top:14px;font-size:13px">
+      Não tem conta? <a id="link-cadastro" href="#" style="color:#0038a7;font-weight:600">Cadastre-se</a>
+    </p>
+  </div>
+</div>
+
+<!-- MODAL CONTA LOGADA -->
+<div id="modal-conta-logada" class="modal">
+  <div class="modal-box">
+    <button class="modal-close" aria-label="Fechar"><i class="ti ti-x"></i></button>
+    <h2><i class="ti ti-user-circle"></i> Minha Conta</h2>
+    <div class="conta-logada-info">
+      <div class="conta-avatar"><i class="ti ti-user-circle"></i></div>
+      <div><strong id="logado-nome"></strong><small id="logado-email"></small></div>
+    </div>
+    <button class="btn-sair-conta" id="btn-sair-conta"><i class="ti ti-logout"></i> Sair da Conta</button>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-grid">
+
+      <!-- COLUNA 1: LOGO -->
+      <div class="footer-col footer-col-logo">
+        <a href="index.html" class="footer-logo">
+          <img src="assets/img/logo-white.png" alt="Josiane Vargas Psicopedagoga" class="footer-logo-img">
+        </a>
+      </div>
+
+      <!-- COLUNA 2: CONTATO -->
+      <div class="footer-col">
+        <h4>Contato</h4>
+        <ul class="footer-contato-list">
+          <li><a href="https://wa.me/5548992011374" target="_blank"><i class="ti ti-brand-whatsapp"></i> 48 9 9201-1374</a></li>
+          <li><a href="https://instagram.com/josianevargasdelfino" target="_blank"><i class="ti ti-brand-instagram"></i> josianevargasdelfino</a></li>
+          <li><a href="mailto:contato@josianevargasdelfino.com.br"><i class="ti ti-mail"></i> contato@josianevargasdelfino.com.br</a></li>
+        </ul>
+      </div>
+
+      <!-- COLUNA 3: PÁGINAS -->
+      <div class="footer-col">
+        <h4>Páginas</h4>
+        <ul class="footer-paginas-list">
+          <li><a href="index.html#">Protocolos</a></li>
+          <li><a href="index.html#">Sobre</a></li>
+          <li><a href="index.html#">Contato</a></li>
+        </ul>
+        <ul class="footer-paginas-list footer-paginas-list-2">
+          <li><a href="#">Políticas de Privacidade</a></li>
+          <li><a href="#">Termos de Uso</a></li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</footer>
+
+<!-- BOTÃO FLUTUANTE WHATSAPP -->
+<a href="https://wa.me/5548992011374" target="_blank" class="wpp-float wpp-pill" aria-label="Fale no WhatsApp">
+  <i class="ti ti-brand-whatsapp"></i><span>Suporte</span>
+</a>
+
+<script src="js/produto.js"></script>
+</body>
+</html>

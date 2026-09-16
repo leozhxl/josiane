@@ -1,0 +1,402 @@
+﻿<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Finalizar Compra — ALL.ECOM</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='16' fill='%230038a7'/><text y='.9em' font-size='80' font-family='Arial' font-weight='900' fill='%23ffd700' x='10'>A</text></svg>">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/checkout.css">
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="header">
+  <div class="header-inner">
+    <a href="index.html" class="logo">
+      <img src="assets/img/logo-orange.png" alt="Josiane Vargas Psicopedagoga" class="logo-img">
+    </a>
+    <div class="header-actions">
+      <a class="hdr-btn" href="index.html" data-action="conta">
+        <i class="ti ti-user-circle"></i><span>Minha Conta</span>
+      </a>
+    </div>
+  </div>
+</header>
+
+<!-- CONTEÚDO -->
+<main class="ck-main">
+
+  <!-- COLUNA ESQUERDA — ETAPAS -->
+  <div class="ck-etapas">
+
+    <!-- ETAPA 1: INFORMAÇÕES PESSOAIS -->
+    <div class="ck-etapa" id="etapa-1">
+      <div class="ck-etapa-header" data-etapa="1">
+        <span class="ck-etapa-num">1</span>
+        <span class="ck-etapa-titulo">Informações pessoais</span>
+      </div>
+      <div class="ck-etapa-corpo" id="corpo-1">
+        <div class="ck-form-grid">
+          <div class="ck-field">
+            <i class="ti ti-mail"></i>
+            <input type="email" id="info-email" placeholder="E-mail" readonly>
+            <i class="ti ti-check ck-field-ok" style="color:#00a650"></i>
+          </div>
+          <div class="ck-field">
+            <i class="ti ti-user"></i>
+            <input type="text" id="info-nome" placeholder="Nome completo">
+            <i class="ti ti-x ck-field-err" style="color:#ef4444;display:none"></i>
+          </div>
+          <div class="ck-field">
+            <i class="ti ti-id-badge"></i>
+            <input type="text" id="info-cpf" placeholder="CPF" maxlength="14">
+          </div>
+          <div class="ck-field">
+            <i class="ti ti-device-mobile"></i>
+            <input type="text" id="info-tel" placeholder="Telefone celular ou fixo" maxlength="15">
+          </div>
+        </div>
+        <p id="info-msg-nome" class="ck-field-msg" style="display:none">Informe o nome completo</p>
+        <label class="ck-check-label"><input type="checkbox" id="chk-email-promo"> Desejo receber e-mails promocionais</label>
+        <label class="ck-check-label"><input type="checkbox" id="chk-pj"> Fazer meu cadastro como <strong>Pessoa Jurídica.</strong></label>
+        <button class="ck-btn-proximo" id="btn-ir-etapa2">Continuar para endereço</button>
+      </div>
+    </div>
+
+    <!-- ETAPA 2: ENDEREÇO DE ENTREGA -->
+    <div class="ck-etapa ck-etapa-fechada" id="etapa-2">
+      <div class="ck-etapa-header" data-etapa="2">
+        <span class="ck-etapa-num">2</span>
+        <span class="ck-etapa-titulo">Endereço de entrega</span>
+      </div>
+      <div class="ck-etapa-corpo" id="corpo-2" style="display:none">
+
+        <!-- endereços salvos -->
+        <div id="enderecos-lista"></div>
+
+        <!-- botão adicionar -->
+        <button class="btn-add-endereco" id="btn-add-endereco">
+          <i class="ti ti-map-pin-plus"></i> Adicionar novo endereço
+        </button>
+
+        <!-- FORMULÁRIO -->
+        <div class="form-endereco" id="form-endereco-wrap" style="display:none">
+          <div class="form-end-titulo" id="form-end-titulo">Adicione um endereço</div>
+          <form id="form-endereco" novalidate>
+            <input type="hidden" id="end-id">
+            <div class="form-end-grupo">
+              <label>CEP</label>
+              <div class="cep-wrap">
+                <input type="text" id="end-cep" placeholder="Ex.: 05410-001" maxlength="9">
+                <a href="https://buscacepinter.correios.com.br/app/endereco/index.php" target="_blank" class="cep-link">Não sei meu CEP</a>
+              </div>
+              <span class="end-msg-cep" id="end-msg-cep"></span>
+            </div>
+            <div class="form-end-grupo">
+              <label>Rua / Avenida</label>
+              <input type="text" id="end-rua" placeholder="Ex.: Avenida Paulista">
+            </div>
+            <div class="form-end-linha">
+              <div class="form-end-grupo" style="flex:1">
+                <label>Número</label>
+                <div class="numero-wrap">
+                  <input type="text" id="end-numero" placeholder="Ex.: 1234">
+                  <label class="sem-numero-label"><input type="checkbox" id="end-sem-numero"> Sem número</label>
+                </div>
+              </div>
+              <div class="form-end-grupo" style="flex:1">
+                <label>Complemento <span style="color:#aaa;font-weight:400">(opcional)</span></label>
+                <input type="text" id="end-complemento" placeholder="Ex.: Apto 201">
+              </div>
+            </div>
+            <div class="form-end-grupo">
+              <label>Bairro</label>
+              <input type="text" id="end-bairro" placeholder="Ex.: Centro">
+            </div>
+            <div class="form-end-linha">
+              <div class="form-end-grupo" style="flex:1">
+                <label>Cidade</label>
+                <input type="text" id="end-cidade" placeholder="Ex.: São Paulo">
+              </div>
+              <div class="form-end-grupo" style="width:80px">
+                <label>Estado</label>
+                <input type="text" id="end-estado" placeholder="SP" maxlength="2">
+              </div>
+            </div>
+            <div class="form-end-divider">Dados de contato</div>
+            <div class="form-end-grupo">
+              <label>Nome completo</label>
+              <input type="text" id="end-nome" placeholder="Seu nome completo">
+            </div>
+            <div class="form-end-grupo">
+              <label>Telefone de contato</label>
+              <div class="tel-wrap">
+                <span class="tel-prefix">+55</span>
+                <input type="text" id="end-telefone" placeholder="(48) 99999-9999" maxlength="15">
+              </div>
+            </div>
+            <label class="predefinido-label">
+              <div class="toggle-wrap">
+                <input type="checkbox" id="end-predefinido" class="toggle-input">
+                <span class="toggle-slider"></span>
+              </div>
+              Escolher como predefinido
+            </label>
+            <p id="end-msg-erro" style="color:#ef4444;font-size:13px;margin-top:4px"></p>
+            <div class="form-end-btns">
+              <button type="button" class="btn-end-cancelar" id="btn-end-cancelar">Cancelar</button>
+              <button type="submit" class="btn-end-salvar"><i class="ti ti-device-floppy"></i> Salvar</button>
+            </div>
+          </form>
+        </div>
+
+        <button class="ck-btn-proximo" id="btn-ir-etapa3" style="display:none">Continuar para formas de envio</button>
+      </div>
+    </div>
+
+    <!-- ETAPA 3: FORMAS DE ENVIO -->
+    <div class="ck-etapa ck-etapa-fechada" id="etapa-3">
+      <div class="ck-etapa-header" data-etapa="3">
+        <span class="ck-etapa-num">3</span>
+        <span class="ck-etapa-titulo">Formas de envio</span>
+      </div>
+      <div class="ck-etapa-corpo" id="corpo-3" style="display:none">
+        <div class="ck-envio-opcoes">
+          <label class="ck-envio-opcao">
+            <input type="radio" name="envio" value="gratis" checked>
+            <div class="ck-envio-info">
+              <strong>Frete grátis</strong>
+              <span>Entrega em 3 a 7 dias úteis</span>
+            </div>
+            <span class="ck-envio-preco" style="color:#00a650;font-weight:700">Grátis</span>
+          </label>
+          <label class="ck-envio-opcao">
+            <input type="radio" name="envio" value="expresso">
+            <div class="ck-envio-info">
+              <strong>Entrega expressa</strong>
+              <span>Entrega em 1 a 2 dias úteis</span>
+            </div>
+            <span class="ck-envio-preco">R$ 29,90</span>
+          </label>
+        </div>
+        <button class="ck-btn-proximo" id="btn-ir-etapa4">Continuar para pagamento</button>
+      </div>
+    </div>
+
+    <!-- ETAPA 4: PAGAMENTO -->
+    <div class="ck-etapa ck-etapa-fechada" id="etapa-4">
+      <div class="ck-etapa-header" data-etapa="4">
+        <span class="ck-etapa-num">4</span>
+        <span class="ck-etapa-titulo">Pagamento</span>
+      </div>
+      <div class="ck-etapa-corpo" id="corpo-4" style="display:none">
+
+        <!-- opções de pagamento -->
+        <div class="ck-pag-grupo-box">
+          <label class="ck-pag-opcao" id="opt-pix">
+            <input type="radio" name="metodo_pag" value="pix" checked>
+            <div class="ck-pag-icone pix-icone">
+              <svg viewBox="0 0 38 38" width="26" height="26"><path fill="#00bdae" d="M9.5 19l4.5-4.5 4.5 4.5-4.5 4.5z"/><path fill="#00bdae" d="M19 9.5l4.5 4.5-4.5 4.5-4.5-4.5z"/><path fill="#00bdae" d="M28.5 19l-4.5 4.5-4.5-4.5 4.5-4.5z"/><path fill="#00bdae" d="M19 28.5l-4.5-4.5 4.5-4.5 4.5 4.5z"/></svg>
+            </div>
+            <div class="ck-pag-info">
+              <strong>Pix</strong>
+              <span class="ck-pag-sub">Aprovação imediata · <span class="ck-pag-destaque-inline">Economize <span id="pix-economia">R$ 0,00</span></span></span>
+            </div>
+          </label>
+
+          <label class="ck-pag-opcao" id="opt-cartao">
+            <input type="radio" name="metodo_pag" value="cartao">
+            <div class="ck-pag-icone" style="display:flex;gap:3px;align-items:center">
+              <!-- Visa -->
+              <svg viewBox="0 0 50 18" width="32" height="12"><text y="13" font-family="Arial" font-size="13" font-weight="900" fill="#1a1f71">VISA</text></svg>
+              <!-- Mastercard -->
+              <svg viewBox="0 0 30 20" width="24" height="18">
+                <circle cx="10" cy="10" r="9" fill="#eb001b"/>
+                <circle cx="20" cy="10" r="9" fill="#f79e1b"/>
+                <path d="M15 3.5a9 9 0 0 1 0 13A9 9 0 0 1 15 3.5z" fill="#ff5f00"/>
+              </svg>
+              <!-- Elo -->
+              <span style="background:#fff200;border:1px solid #e0c800;border-radius:3px;padding:1px 4px;font-size:8px;font-weight:900;color:#000">ELO</span>
+            </div>
+            <div class="ck-pag-info">
+              <strong>Cartão de crédito</strong>
+              <span class="ck-pag-sub">Até 10x sem juros</span>
+            </div>
+          </label>
+
+          <label class="ck-pag-opcao" id="opt-boleto">
+            <input type="radio" name="metodo_pag" value="boleto">
+            <div class="ck-pag-icone">
+              <svg viewBox="0 0 40 28" width="40" height="28">
+                <rect width="40" height="28" rx="3" fill="#f3f4f6"/>
+                <rect x="4"   y="5" width="2.5" height="18" fill="#333"/>
+                <rect x="7.5" y="5" width="1"   height="18" fill="#333"/>
+                <rect x="9.5" y="5" width="3"   height="18" fill="#333"/>
+                <rect x="13.5" y="5" width="1.5" height="18" fill="#333"/>
+                <rect x="16"  y="5" width="2"   height="18" fill="#333"/>
+                <rect x="19.5" y="5" width="1"  height="18" fill="#333"/>
+                <rect x="21.5" y="5" width="3"  height="18" fill="#333"/>
+                <rect x="25.5" y="5" width="1.5" height="18" fill="#333"/>
+                <rect x="28"  y="5" width="2"   height="18" fill="#333"/>
+                <rect x="31.5" y="5" width="1.5" height="18" fill="#333"/>
+              </svg>
+            </div>
+            <div class="ck-pag-info">
+              <strong>Boleto bancário</strong>
+              <span class="ck-pag-sub">Aprovação em 1 a 2 dias úteis</span>
+            </div>
+          </label>
+
+          <label class="ck-pag-opcao" id="opt-loja">
+            <input type="radio" name="metodo_pag" value="loja">
+            <div class="ck-pag-icone">
+              <svg viewBox="0 0 28 28" width="28" height="28">
+                <rect width="28" height="28" rx="4" fill="#f3f4f6"/>
+                <rect x="4" y="14" width="20" height="10" rx="1" fill="#555"/>
+                <path d="M4 14 L14 6 L24 14" fill="none" stroke="#555" stroke-width="2"/>
+                <rect x="10" y="18" width="8" height="6" rx="1" fill="#f3f4f6"/>
+              </svg>
+            </div>
+            <div class="ck-pag-info">
+              <strong>Combinar com a loja</strong>
+              <span class="ck-pag-sub">Entraremos em contato após o pedido</span>
+            </div>
+          </label>
+        </div>
+
+        <!-- formulário cartão -->
+        <div class="ck-cartao-form" id="ck-cartao-form" style="display:none">
+          <div class="ck-cartao-campo">
+            <label>Número do cartão</label>
+            <input type="text" id="cartao-numero" placeholder="0000 0000 0000 0000" maxlength="19">
+          </div>
+          <div class="ck-cartao-linha">
+            <div class="ck-cartao-campo">
+              <label>Validade</label>
+              <input type="text" id="cartao-validade" placeholder="MM/AA" maxlength="5">
+            </div>
+            <div class="ck-cartao-campo">
+              <label>CVV</label>
+              <input type="text" id="cartao-cvv" placeholder="000" maxlength="4">
+            </div>
+          </div>
+          <div class="ck-cartao-campo">
+            <label>Nome no cartão</label>
+            <input type="text" id="cartao-nome" placeholder="Como está no cartão">
+          </div>
+          <div class="ck-cartao-campo">
+            <label>CPF do titular</label>
+            <input type="text" id="cartao-cpf" placeholder="000.000.000-00" maxlength="14">
+          </div>
+          <div class="ck-cartao-campo">
+            <label>Parcelas</label>
+            <select id="cartao-parcelas"></select>
+          </div>
+        </div>
+
+        <p id="pagamento-msg" style="font-size:13px;color:#ef4444;margin-top:8px"></p>
+
+      </div>
+    </div>
+
+  </div>
+
+  <!-- COLUNA DIREITA — RESUMO -->
+  <aside class="ck-resumo-col">
+
+    <!-- lista de produtos -->
+    <div class="ck-resumo-card">
+      <div class="ck-resumo-produtos-header">
+        <h3>Produtos <span id="resumo-qtd-label" class="ck-resumo-qtd"></span></h3>
+        <a href="javascript:history.back()" class="ck-btn-voltar"><i class="ti ti-shopping-cart"></i> Voltar</a>
+      </div>
+      <div id="resumo-produtos-lista"></div>
+    </div>
+
+    <!-- resumo do pedido -->
+    <div class="ck-resumo-card" style="margin-top:12px">
+      <h3 class="ck-resumo-titulo">Resumo do pedido</h3>
+      <div class="ck-resumo-linha">
+        <span>Subtotal</span>
+        <span id="resumo-subtotal">R$ 0,00</span>
+      </div>
+      <div class="ck-resumo-linha" id="linha-desconto" style="display:none">
+        <span>Desconto Pix (5%)</span>
+        <span id="resumo-desconto" style="color:#00a650"></span>
+      </div>
+      <div class="ck-resumo-linha frete-linha">
+        <span>Frete</span>
+        <span><s id="resumo-frete-risco" style="color:#aaa;margin-right:4px">R$ 8,00</s><span style="color:#00a650;font-weight:600">Grátis</span></span>
+      </div>
+      <div class="ck-resumo-total-linha">
+        <span>Total do pedido</span>
+        <strong id="resumo-total">R$ 0,00</strong>
+      </div>
+
+      <!-- observações -->
+      <div class="ck-obs-wrap" id="ck-obs-wrap">
+        <button class="ck-obs-btn" id="btn-obs" type="button">
+          Adicionar observações no pedido <i class="ti ti-chevron-down"></i>
+        </button>
+        <textarea class="ck-obs-textarea" id="ck-obs-textarea" placeholder="Ex.: Deixar com o porteiro" style="display:none" rows="3"></textarea>
+      </div>
+    </div>
+
+    <!-- botão finalizar -->
+    <button class="ck-btn-finalizar" id="btn-finalizar">Finalizar pedido</button>
+    <p id="finalizar-msg" style="font-size:13px;color:#ef4444;text-align:center;margin-top:8px"></p>
+
+  </aside>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-grid">
+
+      <!-- COLUNA 1: LOGO -->
+      <div class="footer-col footer-col-logo">
+        <a href="index.html" class="footer-logo">
+          <img src="assets/img/logo-white.png" alt="Josiane Vargas Psicopedagoga" class="footer-logo-img">
+        </a>
+      </div>
+
+      <!-- COLUNA 2: CONTATO -->
+      <div class="footer-col">
+        <h4>Contato</h4>
+        <ul class="footer-contato-list">
+          <li><a href="https://wa.me/5548992011374" target="_blank"><i class="ti ti-brand-whatsapp"></i> 48 9 9201-1374</a></li>
+          <li><a href="https://instagram.com/josianevargasdelfino" target="_blank"><i class="ti ti-brand-instagram"></i> josianevargasdelfino</a></li>
+          <li><a href="mailto:contato@josianevargasdelfino.com.br"><i class="ti ti-mail"></i> contato@josianevargasdelfino.com.br</a></li>
+        </ul>
+      </div>
+
+      <!-- COLUNA 3: PÁGINAS -->
+      <div class="footer-col">
+        <h4>Páginas</h4>
+        <ul class="footer-paginas-list">
+          <li><a href="index.html#">Protocolos</a></li>
+          <li><a href="index.html#">Sobre</a></li>
+          <li><a href="index.html#">Contato</a></li>
+        </ul>
+        <ul class="footer-paginas-list footer-paginas-list-2">
+          <li><a href="#">Políticas de Privacidade</a></li>
+          <li><a href="#">Termos de Uso</a></li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</footer>
+
+<!-- BOTÃO FLUTUANTE WHATSAPP -->
+<a href="https://wa.me/5548992011374" target="_blank" class="wpp-float" aria-label="Fale no WhatsApp">
+  <i class="ti ti-brand-whatsapp"></i>
+</a>
+
+<script src="js/checkout.js"></script>
+</body>
+</html>

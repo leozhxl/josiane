@@ -1,0 +1,851 @@
+[
+  {
+    "id": 1789406252053,
+    "criadoEm": "2026-09-15T16:44:00.000Z",
+    "titulo": "Curso INELE",
+    "preco": "190.00",
+    "desconto": "0",
+    "estoque": "50",
+    "status": "ativo",
+    "fotos": [
+      "/assets/img/Gemini_Generated_Image_xyt2pxyt2pxyt2px.jpg"
+    ],
+    "descricao": "<p><strong>No Curso INELE, você vai aprender:</strong></p><ul><li>A estrutura completa do programa e sua fundamentação neuropsicológica;</li><li>Como aplicar cada etapa do INELE de forma prática, organizada e eficaz;</li><li>Quais habilidades cognitivas e linguísticas são estimuladas em cada módulo;</li><li>Como adaptar o programa às necessidades específicas de cada criança;</li><li>Como utilizar o INELE no planejamento de intervenção para casos de dificuldades de aprendizagem, dislexia e atrasos na alfabetização;</li><li>Estratégias de registro, acompanhamento e análise dos resultados para medir o progresso do aluno.</li></ul><p>Este curso foi criado para profissionais que desejam aprimorar sua prática clínica e pedagógica, utilizando um protocolo sólido, estruturado e cientificamente fundamentado para potencializar o desenvolvimento da leitura e da escrita.</p><p>Se o seu objetivo é oferecer intervenções mais eficientes, seguras e com base em evidências, o Curso INELE é a formação ideal para transformar sua atuação e ampliar seus resultados.</p>",
+    "categoria": "Protocolos",
+    "marca": "Vetor Editora"
+  },
+  {
+    "id": 1789406252052,
+    "criadoEm": "2026-09-15T16:43:00.000Z",
+    "titulo": "Curso TDE II",
+    "preco": "190.00",
+    "desconto": "0",
+    "estoque": "50",
+    "status": "ativo",
+    "fotos": [
+      "/assets/img/Gemini_Generated_Image_wk89uwwk89uwwk89.jpg"
+    ],
+    "descricao": "<p>Neste curso, você aprenderá <strong>como aplicar</strong>, <strong>como corrigir</strong> e <strong>como citar</strong> os resultados no relatório clínico ou pedagógico, de forma organizada e fundamentada:</p><ul><li><strong>Como aplicar:</strong> passo a passo detalhado sobre cada procedimento, critérios, organização do ambiente, condução das tarefas e forma adequada de registrar respostas.</li><li><strong>Como corrigir:</strong> orientações precisas sobre pontuação, interpretação dos resultados, análise dos padrões de erro e identificação das habilidades preservadas e alteradas.</li><li><strong>Como citar no relatório:</strong> modelos de escrita profissional, descrição técnica dos achados, apresentação dos dados de forma objetiva e fundamentada, e diretrizes para integrar os resultados às recomendações de intervenção.</li></ul>",
+    "categoria": "Protocolos",
+    "marca": "Vetor Editora"
+  },
+  {
+    "id": 1789406252051,
+    "criadoEm": "2026-09-15T16:42:00.000Z",
+    "titulo": "Curso Funções Executivas",
+    "preco": "190.00",
+    "desconto": "0",
+    "estoque": "50",
+    "status": "ativo",
+    "fotos": [
+      "/assets/img/Gemini_Generated_Image_5x4i4n5x4i4n5x4i.jpg"
+    ],
+    "descricao": "<p>Este curso foi pensado para terapeutas que desejam atuar com mais profundidade, aplicando intervenções que realmente transformam o comportamento e o desenvolvimento global do paciente. Quando o profissional compreende e trabalha com precisão as funções executivas, consegue promover avanços muito mais rápidos, consistentes e funcionais.</p>",
+    "categoria": "Cursos",
+    "marca": "Hogrefe"
+  },
+  {
+    "id": 1789406252050,
+    "criadoEm": "2026-09-15T16:40:00.000Z",
+    "titulo": "Curso: Terapia em Lego",
+    "preco": "190.00",
+    "desconto": "0",
+    "estoque": "50",
+    "status": "ativo",
+    "fotos": [
+      "/assets/img/Gemini_Generated_Image_sou8bxsou8bxsou8.jpg"
+    ],
+    "descricao": "<p>No Curso Terapia em LEGO, você vai aprender, de forma clara e prática, a importância de utilizar o LEGO como ferramenta terapêutica para potencializar o desenvolvimento das crianças. Muito mais do que um brinquedo, o LEGO se torna uma estratégia estruturada que estimula habilidades cognitivas, sociais, motoras, linguísticas e emocionais tudo de maneira lúdica, motivadora e significativa.</p><p>Este curso foi criado para terapeutas que desejam ampliar seus recursos clínicos e trabalhar com atividades que realmente fazem sentido para a criança. Você será capacitado(a) a:</p><ul><li>Utilizar o LEGO como ferramenta de intervenção estruturada;</li><li>Estimular comunicação, atenção conjunta e habilidades sociais;</li><li>Desenvolver funções executivas como planejamento, organização e flexibilidade cognitiva;</li><li>Criar propostas terapêuticas personalizadas com base nos objetivos do paciente;</li><li>Demonstrar às famílias o valor terapêutico das atividades com LEGO.</li></ul>",
+    "categoria": "Cursos",
+    "marca": "Hogrefe"
+  },
+  {
+    "id": 1789406252049,
+    "criadoEm": "2026-09-15T16:37:00.000Z",
+    "titulo": "Curso TCLPP",
+    "preco": "190.00",
+    "desconto": "0",
+    "estoque": "50",
+    "status": "ativo",
+    "fotos": [
+      "/assets/img/ChatGPT Image 15 de set. de 2026, 16_37_55.png"
+    ],
+    "descricao": "<p><strong>Neste curso, você vai aprender:</strong></p><ul><li>Como aplicar o TCLPP passo a passo, seguindo todos os critérios técnicos de forma organizada e fidedigna;</li><li>Como realizar a correção de maneira correta, entendendo exatamente o que deve ser considerado erro, acerto, autocorreção e hesitação;</li><li>Como interpretar resultados, identificando indicadores de dificuldades fonológicas, problemas de rota lexical, padrões de leitura e sinais de risco para dislexia;</li><li>Como citar o TCLPP em relatórios clínicos com excelência, utilizando modelos claros, objetivos e tecnicamente adequados;</li></ul>",
+    "categoria": "Protocolos",
+    "marca": "Hogrefe"
+  },
+  {
+    "id": 1789406252048,
+    "criadoEm": "2026-09-15T16:36:00.000Z",
+    "titulo": "Curso Baralho do Autismo",
+    "preco": "190.00",
+    "desconto": "0",
+    "estoque": "50",
+    "status": "ativo",
+    "fotos": [
+      "/assets/img/ChatGPT Image 15 de set. de 2026, 16_36_16.png"
+    ],
+    "descricao": "<p><strong>Durante o curso, você será capacitado(a) a:</strong></p><ul><li>Jogar e aplicar corretamente as cartas, entendendo a função de cada uma dentro do processo avaliativo;</li><li>Reconhecer sinais do autismo conforme os critérios do DSM-5, utilizando o baralho como ferramenta de apoio para organização, observação e interpretação dos comportamentos;</li><li>Integrar o baralho ao seu atendimento, favorecendo intervenções mais assertivas e alinhadas às necessidades da criança;</li><li>Utilizar o recurso como complementar às práticas clínicas, sem substituir a avaliação multidisciplinar.</li></ul><p>Este curso foi criado para oferecer ao terapeuta uma ferramenta acessível, clara e funcional para avaliar, identificar e intervir, contribuindo para melhores resultados no desenvolvimento de TEA.</p>",
+    "categoria": "Cursos",
+    "marca": "Hogrefe"
+  },
+  {
+    "id": 1789406252047,
+    "criadoEm": "2026-09-15T16:34:00.000Z",
+    "titulo": "Curso de Dislexia, Discalculia e TOD",
+    "preco": "190.00",
+    "desconto": "0",
+    "estoque": "50",
+    "status": "ativo",
+    "fotos": [
+      "/assets/img/ChatGPT Image 15 de set. de 2026, 16_34_45.png"
+    ],
+    "descricao": "<p>Três aulas completas para compreender, de forma prática e aprofundada, a estrutura dessas três áreas de acordo com o DSM-5.</p><p>Neste aulão, você terá acesso a conteúdos essenciais para identificar, diferenciar e compreender os principais transtornos que impactam aprendizagem e comportamento.</p><p><strong>Você vai aprender:</strong></p><ul><li><strong>Dislexia:</strong> como funciona a estrutura do transtorno segundo o DSM-5, seus marcadores, dificuldades de leitura, rota fonológica, rota lexical e sinais de risco.</li><li><strong>Discalculia:</strong> critérios diagnósticos, manifestações em diferentes idades, erros típicos, processamento numérico e impacto nas habilidades matemáticas.</li><li><strong>TOD (Transtorno Opositivo Desafiante):</strong> compreensão comportamental segundo o DSM-5, sinais precoces, padrões de oposição, desregulação emocional e distinção entre TOD, TDAH e comportamentos típicos da infância.</li></ul>",
+    "categoria": "Cursos",
+    "marca": "Hogrefe"
+  },
+  {
+    "id": 1789406252046,
+    "criadoEm": "2026-09-15T16:32:00.000Z",
+    "titulo": "Curso IAR",
+    "preco": "190.00",
+    "desconto": "0",
+    "estoque": "50",
+    "status": "ativo",
+    "fotos": [
+      "/assets/img/Gemini_Generated_Image_shha1cshha1cshha.jpg"
+    ],
+    "descricao": "<p>Neste curso, você aprenderá <strong>como aplicar</strong>, <strong>como corrigir</strong> e <strong>como citar</strong> os resultados no relatório clínico ou pedagógico, de forma organizada e fundamentada:</p><ul><li><strong>Como aplicar:</strong> passo a passo detalhado sobre cada procedimento, critérios, organização do ambiente, condução das tarefas e forma adequada de registrar respostas.</li><li><strong>Como corrigir:</strong> orientações precisas sobre pontuação, interpretação dos resultados, análise dos padrões de erro e identificação das habilidades preservadas e alteradas.</li><li><strong>Como citar no relatório:</strong> modelos de escrita profissional, descrição técnica dos achados, apresentação dos dados de forma objetiva e fundamentada, e diretrizes para integrar os resultados às recomendações de intervenção.</li></ul>",
+    "categoria": "Protocolos",
+    "marca": "Hogrefe"
+  },
+  {
+    "id": 1789406252045,
+    "criadoEm": "2026-09-15T16:31:00.000Z",
+    "titulo": "Curso de Alfabetização com Ebook de Materiais Terapêutico",
+    "preco": "190.00",
+    "desconto": "0",
+    "estoque": "50",
+    "status": "ativo",
+    "fotos": [
+      "/assets/img/Gemini_Generated_Image_bapam1bapam1bapa.jpg"
+    ],
+    "descricao": "<p><strong>No curso, você vai aprender:</strong></p><ul><li>As habilidades pré-alfabéticas essenciais, como consciência fonológica, atenção, memória, discriminação auditiva e visual, coordenação motora fina, linguagem e organização espacial;</li><li>Técnicas terapêuticas e pedagógicas que preparam a criança para o código escrito;</li><li>Como identificar sinais de risco para dificuldades de aprendizagem antes do início da alfabetização;</li><li>Formas de planejar intervenções mais eficazes, baseadas no desenvolvimento cognitivo e linguístico da criança;</li><li>Estratégias práticas para fortalecer as competências necessárias ao processo de leitura e escrita.</li></ul><p>Além disso, você receberá um Ebook exclusivo de Materiais Terapêuticos, contendo atividades prontas para uso, exercícios estruturados e propostas funcionais que podem ser aplicadas em clínicas, escolas ou atendimentos individuais.</p><p>Este curso foi criado para quem deseja alfabetizar com segurança, embasamento e técnica — entendendo que antes de ler e escrever, a criança precisa desenvolver habilidades-chave que garantem uma aprendizagem verdadeira e duradoura.</p>",
+    "categoria": "Cursos",
+    "marca": "Hogrefe"
+  },
+  {
+    "id": 1789406252044,
+    "criadoEm": "2026-09-15T16:29:00.000Z",
+    "titulo": "Curso TIAH/S",
+    "preco": "190.00",
+    "desconto": "0",
+    "estoque": "50",
+    "status": "ativo",
+    "fotos": [
+      "/assets/img/Gemini_Generated_Image_3emtup3emtup3emt.jpg"
+    ],
+    "descricao": "<p><strong>Neste curso, você vai aprender:</strong></p><ul><li><strong>A aplicar o TIAH/S do início ao fim</strong>, entendendo cada etapa com nitidez e segurança, seguindo todos os critérios exigidos pelo instrumento;</li><li><strong>A realizar a correção e a análise dos resultados com precisão</strong>, compreendendo o significado de cada indicador e o que ele revela sobre o perfil da criança avaliada;</li><li><strong>A interpretar os dados de forma clara e responsável</strong>, transformando números e observações em conhecimento clínico aplicável na prática.</li></ul>",
+    "categoria": "Protocolos",
+    "marca": "Vetor Editora"
+  },
+  {
+    "id": 1789406252043,
+    "criadoEm": "2026-09-15T16:27:00.000Z",
+    "titulo": "Curso: Práticas para Iniciantes direcionado à Terapeutas",
+    "preco": "190.00",
+    "desconto": "0",
+    "estoque": "50",
+    "status": "ativo",
+    "fotos": [
+      "/assets/img/Gemini_Generated_Image_ejxd9wejxd9wejxd.jpg"
+    ],
+    "descricao": "<p>O Curso Práticas para Iniciantes foi criado para profissionais que estão começando na clínica e desejam construir uma prática segura, ética e eficaz desde o primeiro contato. Este curso oferece um passo a passo prático e aplicável para todas as etapas do atendimento – da recepção até o encaminhamento e orientação familiar, com foco em organização, tomada de decisão clínica e construção de vínculo.</p>",
+    "categoria": "Cursos",
+    "marca": "Hogrefe"
+  },
+  {
+    "id": 1789406252042,
+    "criadoEm": "2026-09-15T16:25:30.000Z",
+    "titulo": "Combo 4 Volumes",
+    "preco": "190.00",
+    "desconto": "0",
+    "estoque": "50",
+    "status": "ativo",
+    "fotos": [
+      "/assets/img/Gemini_Generated_Image_ai87lzai87lzai87.jpg"
+    ],
+    "descricao": "<p><strong>Volume 1 – Atenção e Funções Executivas</strong></p><ul><li>TAC – Teste de Atenção por Cancelamento</li><li>Trilhas Pré-Escolares e A/B</li><li>Torre de Londres</li></ul><p><strong>Volume 2 – Linguagem Oral</strong></p><ul><li>TRPP – Teste de Repetição de Palavras e Pseudopalavras</li><li>TIN – Teste Infantil de Nomeação</li><li>PCFO – Prova de Consciência Fonológica por Produção Oral</li><li>PCFF – Prova de Consciência Fonológica por Escolha de Figuras</li><li>TDF – Teste de Discriminação Fonológica</li></ul><p><strong>Volume 3 – Leitura, Escrita e Aritmética</strong></p><ul><li>TCCAL – Teste Contrastivo de Compreensão Auditiva e Leitura</li><li>PED – Prova de Escrita sob Ditado</li><li>PA – Prova de Aritmética</li></ul><p><strong>Volume 4 – Memória de Trabalho</strong></p><ul><li>Cubos de Corsi</li><li>Span de Dígitos</li></ul>",
+    "categoria": "Protocolos",
+    "marca": "Hogrefe"
+  },
+  {
+    "id": 1789406252041,
+    "criadoEm": "2026-09-15T16:25:00.000Z",
+    "titulo": "Curso PRONÚMERO",
+    "preco": "190.00",
+    "desconto": "0",
+    "estoque": "50",
+    "status": "ativo",
+    "fotos": [
+      "/assets/img/Gemini_Generated_Image_pbl1cvpbl1cvpbl1.jpg"
+    ],
+    "descricao": "<p><strong>Curso PRONÚMERO</strong> – Bateria de Avaliação do Processamento Numérico e Cálculo</p><p>Aprenda a aplicar, corrigir e citar o teste PRONÚMERO em relatório.</p><p><strong>Inclui:</strong></p><ul><li>Avaliação e correção passo a passo</li><li>Citação no relatório</li><li>Aulas gravadas e acesso vitalício</li><li>Certificado de conclusão</li><li>Domínio dos testes TPAN, TCAB e TTN</li></ul>",
+    "categoria": "Protocolos",
+    "marca": "Vetor Editora"
+  },
+  {
+    "id": 1789406252040,
+    "criadoEm": "2026-09-15T16:23:00.000Z",
+    "titulo": "Curso VB MAPP",
+    "preco": "190.00",
+    "desconto": "0",
+    "estoque": "50",
+    "status": "ativo",
+    "fotos": [
+      "/assets/img/Gemini_Generated_Image_fvfwtefvfwtefvfw.jpg"
+    ],
+    "descricao": "<p><strong>CURSO</strong> – O Programa de Avaliação e Colocação de Marcos do Comportamento Verbal (VB-MAPP).</p><ul><li>Módulo 1 – Introdução ao Comportamento Verbal e Operantes Verbais</li><li>Módulo 2 – Introdução ao VB-MAPP</li><li>Módulo 3 – Avaliação dos Marcos Nível 1</li><li>Módulo 4 – Avaliação dos Marcos Nível 2</li><li>Módulo 5 – Avaliação dos Marcos Nível 3</li><li>Módulo 6 – Correção</li></ul>",
+    "categoria": "Protocolos",
+    "marca": "Hogrefe"
+  },
+  {
+    "id": 1789406252039,
+    "criadoEm": "2026-09-15T16:22:00.000Z",
+    "titulo": "Curso ABLLS-R",
+    "preco": "190.00",
+    "desconto": "0",
+    "estoque": "50",
+    "status": "ativo",
+    "fotos": [
+      "/assets/img/Gemini_Generated_Image_8swcps8swcps8swc.jpg"
+    ],
+    "descricao": "<p>O ABLLS (Assessment of Basic Language and Learning Skills) é um dos protocolos mais utilizados no mundo para avaliar habilidades fundamentais em crianças com atrasos no desenvolvimento, TEA e dificuldades de aprendizagem. Ele fornece uma visão ampla e detalhada das competências necessárias para o aprendizado funcional, permitindo ao terapeuta identificar lacunas, traçar metas e construir intervenções altamente direcionadas.</p><p>Pensando na importância dessa ferramenta para o atendimento clínico, apresento o Curso ABLLS, uma formação completa para quem deseja dominar o protocolo do início ao fim, com segurança e excelência.</p>",
+    "categoria": "Protocolos",
+    "marca": "Hogrefe"
+  },
+  {
+    "id": 1789406252038,
+    "criadoEm": "2026-09-15T16:20:00.000Z",
+    "titulo": "Curso PROADE",
+    "preco": "190.00",
+    "desconto": "0",
+    "estoque": "50",
+    "status": "ativo",
+    "fotos": [
+      "/assets/img/Gemini_Generated_Image_b0uveib0uveib0uv.jpg"
+    ],
+    "descricao": "<p>Neste curso, você aprenderá <strong>como aplicar</strong>, <strong>como corrigir</strong> e <strong>como citar</strong> os resultados no relatório clínico ou pedagógico, de forma organizada e fundamentada:</p><ul><li><strong>Como aplicar:</strong> passo a passo detalhado sobre cada procedimento, critérios, organização do ambiente, condução das tarefas e forma adequada de registrar respostas.</li><li><strong>Como corrigir:</strong> orientações precisas sobre pontuação, interpretação dos resultados, análise dos padrões de erro e identificação das habilidades preservadas e alteradas.</li><li><strong>Como citar no relatório:</strong> modelos de escrita profissional, descrição técnica dos achados, apresentação dos dados de forma objetiva e fundamentada, e diretrizes para integrar os resultados às recomendações de intervenção.</li></ul>",
+    "categoria": "Protocolos",
+    "marca": "Vetor Editora"
+  },
+  {
+    "id": 1789406252037,
+    "criadoEm": "2026-09-15T16:06:00.000Z",
+    "titulo": "Curso PROTEA-R",
+    "preco": "190.00",
+    "desconto": "0",
+    "estoque": "50",
+    "status": "ativo",
+    "fotos": [
+      "/assets/img/Gemini_Generated_Image_mdy408mdy408mdy4.jpg"
+    ],
+    "descricao": "<p>Durante o curso, você aprenderá todo o processo, desde a preparação do ambiente e a condução da anamnese, até a codificação, interpretação dos resultados e elaboração dos pareceres.</p><p>Com esse conhecimento, você terá maior segurança em sua prática, construindo relatórios mais completos e precisos, além de fortalecer sua atuação profissional com base em evidências científicas.</p><p><strong>Conteúdo Programático</strong></p><ul><li>Sistema PROTEA-R</li><li>Entrevista de Anamnese</li><li>Protocolo de Avaliação Comportamental</li><li>Preparação do Ambiente</li><li>Orientações para Conduta do Avaliador</li><li>Codificação e Interpretação dos Resultados</li></ul><p><strong>Garanta sua vaga!</strong></p><p>Se você deseja dominar a aplicação do PROTEA-R e potencializar sua atuação clínica ou educacional, este curso é para você.</p><p>Ao final, você terá a segurança de aplicar, corrigir, interpretar e elaborar relatórios com excelência.</p>",
+    "categoria": "Protocolos",
+    "marca": "Vetor Editora"
+  },
+  {
+    "id": 1789406252036,
+    "criadoEm": "2026-09-15T16:02:00.000Z",
+    "titulo": "Curso PROLEC SE-R",
+    "preco": "190.00",
+    "desconto": "0",
+    "estoque": "50",
+    "status": "ativo",
+    "fotos": [
+      "/assets/img/Gemini_Generated_Image_yppms0yppms0yppm.jpg"
+    ],
+    "descricao": "<p>O PROLEC-SE-R é um instrumento com 13 provas para a avaliação e a detecção das dificuldades de leitura em estudantes. Sua aplicação permite obter informações sobre os três processos básicos da leitura: os processos léxicos, sintáticos e semânticos.</p><p><strong>Objetivo</strong></p><p>Avaliar a capacidade geral de leitura e dos processos cognitivos provenientes dos processos: léxico, sintático e semântico. Detecção de dificuldades na leitura.</p><p><strong>População</strong></p><p>do II e do 1º ao 3º ano do Ensino Médio.</p>",
+    "categoria": "Protocolos",
+    "marca": "Hogrefe"
+  },
+  {
+    "id": 1789406252035,
+    "criadoEm": "2026-09-15T16:01:00.000Z",
+    "titulo": "Curso: Protocolo de Avaliação das Habilidades Cognitivo-Linguísticas",
+    "preco": "190.00",
+    "desconto": "0",
+    "estoque": "50",
+    "status": "ativo",
+    "fotos": [
+      "/assets/img/Gemini_Generated_Image_cjufvdcjufvdcjuf.jpg"
+    ],
+    "descricao": "<p>Neste curso, você aprenderá <strong>como aplicar</strong>, <strong>como corrigir</strong> e <strong>como citar</strong> os resultados no relatório clínico ou pedagógico, de forma organizada e fundamentada:</p><ul><li><strong>Como aplicar:</strong> passo a passo detalhado sobre cada procedimento, critérios, organização do ambiente, condução das tarefas e forma adequada de registrar respostas.</li><li><strong>Como corrigir:</strong> orientações precisas sobre pontuação, interpretação dos resultados, análise dos padrões de erro e identificação das habilidades preservadas e alteradas.</li><li><strong>Como citar no relatório:</strong> modelos de escrita profissional, descrição técnica dos achados, apresentação dos dados de forma objetiva e fundamentada, e diretrizes para integrar os resultados às recomendações de intervenção.</li></ul>",
+    "categoria": "Protocolos",
+    "marca": "Hogrefe"
+  },
+  {
+    "id": 1789406252034,
+    "criadoEm": "2026-09-15T15:59:00.000Z",
+    "titulo": "Curso de Avaliação de Linguagem e Funções Executivas em Crianças",
+    "preco": "190.00",
+    "desconto": "0",
+    "estoque": "50",
+    "status": "ativo",
+    "fotos": [
+      "/assets/img/Gemini_Generated_Image_ahsjksahsjksahsj.jpg"
+    ],
+    "descricao": "<p>Este pacote reúne 5 cursos fundamentais para psicopedagogos e neuropsicopedagogos que desejam aprofundar suas avaliações com base em evidências, com foco na linguagem e nas funções executivas de crianças a partir de 6 anos.</p><p><strong>Inclui os cursos:</strong></p><ul><li>THI – Teste Hayling Infantil</li><li>GAN – Geração de Números Aleatórios</li><li>TFV – Tarefas de Fluência Verbal</li><li>DNOI – Discurso Narrativo Oral Infantil</li><li>DNEI – Discurso Narrativo Escrito Infantil</li></ul><p><strong>O que você aprende</strong></p><ul><li>Aplicação correta de cada teste</li><li>Como corrigir e interpretar os resultados</li><li>Modelos de citação técnica nos relatórios</li><li>Fundamentos teóricos e orientações práticas</li><li>Avaliação de linguagem, narrativa, atenção, inibição e flexibilidade cognitiva</li></ul><p><strong>Indicação</strong></p><p>Indicados para crianças de 6 a 12 anos, podendo ser utilizados com maiores que apresentem atrasos no desenvolvimento.</p>",
+    "categoria": "Protocolos",
+    "marca": "Hogrefe"
+  },
+  {
+    "id": 1789406252033,
+    "criadoEm": "2026-09-15T15:57:00.000Z",
+    "titulo": "Curso ETDAH-AD",
+    "preco": "190.00",
+    "desconto": "0",
+    "estoque": "50",
+    "status": "ativo",
+    "fotos": [
+      "/assets/img/Gemini_Generated_Image_q7qv3eq7qv3eq7qv.jpg"
+    ],
+    "descricao": "<p>A ETDAH-AD é uma escala rápida e prática para identificar sintomas de TDAH em <strong>adolescentes e adultos (12 a 87 anos)</strong>. Pode ser aplicada individualmente ou em grupo e é autoadministrável.</p><p>No curso, você aprende a <strong>entender a escala, aplicar corretamente, corrigir com precisão</strong> e interpretar os níveis de atenção, hiperatividade e impulsividade, garantindo uso técnico e confiável do instrumento.</p>",
+    "categoria": "Protocolos",
+    "marca": "Vetor Editora"
+  },
+  {
+    "id": 1789406252032,
+    "criadoEm": "2026-09-15T15:56:00.000Z",
+    "titulo": "Curso Teste dos Cinco Pontos",
+    "preco": "190.00",
+    "desconto": "0",
+    "estoque": "50",
+    "status": "ativo",
+    "fotos": [
+      "/assets/img/Gemini_Generated_Image_akl6sjakl6sjakl6.jpg"
+    ],
+    "descricao": "<p>A aplicação do teste é realizada de forma padronizada, em ambiente organizado e sem induções, registrando-se não apenas as respostas, mas também as estratégias, o tempo e os comportamentos observados.</p><p>A correção segue o manual oficial, considerando quantidade e qualidade das respostas, processos cognitivos utilizados e possíveis padrões de perseveração.</p><p>No relatório, o instrumento é citado de forma objetiva, descrevendo sua finalidade, o modo de aplicação e os principais resultados obtidos, integrando dados quantitativos e qualitativos à análise clínica.</p>",
+    "categoria": "Protocolos",
+    "marca": "Hogrefe"
+  },
+  {
+    "id": 1789406252031,
+    "criadoEm": "2026-09-15T15:54:00.000Z",
+    "titulo": "Curso IDADI",
+    "preco": "190.00",
+    "desconto": "0",
+    "estoque": "50",
+    "status": "ativo",
+    "fotos": [
+      "/assets/img/Gemini_Generated_Image_k6aj45k6aj45k6aj.jpg"
+    ],
+    "descricao": "<p>O Curso IDADI oferece uma formação sólida e aplicável sobre o <strong>Inventário de Avaliação do Desenvolvimento Infantil</strong>, instrumento utilizado para mapear, com rigor técnico, o desenvolvimento de crianças de <strong>0 a 6 anos</strong> em múltiplas dimensões.</p><p>Ao longo do curso, você aprende de forma prática, objetiva e estruturada:</p><p><strong>Fundamentos teóricos do IDADI</strong></p><ul><li>Compreensão da base conceitual do instrumento;</li><li>Estrutura do inventário e suas áreas avaliadas;</li><li>Importância do IDADI na identificação precoce de atrasos.</li></ul><p><strong>Como aplicar o IDADI passo a passo</strong></p><ul><li>Procedimentos padronizados de apresentação dos itens;</li><li>Como conduzir a avaliação sem induções;</li><li>Adaptações necessárias para crianças com TEA, TDAH ou atraso global;</li><li>Registro adequado de respostas e comportamentos.</li></ul><p><strong>Como citar o IDADI em relatórios clínicos e psicopedagógicos</strong></p><ul><li>Forma correta e ética de apresentar o instrumento na seção de \"Procedimentos e Instrumentos\";</li><li>Modelos profissionais de descrição dos resultados;</li><li>Orientação sobre escrita clara, objetiva e alinhada às normas da área.</li></ul>",
+    "categoria": "Protocolos",
+    "marca": "Vetor Editora"
+  },
+  {
+    "id": 1789406252030,
+    "criadoEm": "2026-09-15T15:52:00.000Z",
+    "titulo": "Curso TDAH Pais e TDAH Criad",
+    "preco": "190.00",
+    "desconto": "0",
+    "estoque": "50",
+    "status": "ativo",
+    "fotos": [
+      "/assets/img/Gemini_Generated_Image_1zwskz1zwskz1zws.jpg"
+    ],
+    "descricao": "<p><strong>Aplicação, Correção e Citação no Relatório Clínico</strong></p><p>Este curso foi desenvolvido para capacitar profissionais na utilização completa e padronizada das escalas <strong>TDAH Pais</strong> e <strong>TDAH Criad</strong> — instrumentos amplamente utilizados para identificar e monitorar sintomas do Transtorno do Déficit de Atenção e Hiperatividade (TDAH) em crianças e adolescentes.</p><p>A formação oferece uma abordagem prática e fundamentada, permitindo que você domine:</p><p><strong>Objetivos do Curso</strong></p><ul><li>Aprender a aplicar as escalas de forma técnica, ética e adequada ao contexto clínico e escolar;</li><li>Dominar a correção e interpretação dos escores, entendendo o que cada área e domínio avalia;</li><li>Identificar indicadores de desatenção, hiperatividade e impulsividade, reconhecendo padrões de risco e intensidade sintomática;</li><li>Utilizar os resultados para embasar decisões clínicas, encaminhamentos e intervenções;</li><li>Citar corretamente as escalas em relatórios clínicos e psicopedagógicos, com clareza e alinhamento às normas profissionais;</li><li>Integrar dados do instrumento com observações, anamnese e demais avaliações, produzindo análises mais completas e confiáveis.</li></ul><p>Com uma metodologia objetiva e conteúdo organizado, este curso prepara você para aplicar, interpretar e transformar os resultados das escalas em informações úteis, éticas e tecnicamente sólidas para sua prática.</p>",
+    "categoria": "Protocolos",
+    "marca": "Vetor Editora"
+  },
+  {
+    "id": 1789406252029,
+    "criadoEm": "2026-09-15T15:49:00.000Z",
+    "titulo": "Curso PORTAGE",
+    "preco": "190.00",
+    "desconto": "0",
+    "estoque": "50",
+    "status": "ativo",
+    "fotos": [
+      "/assets/img/Gemini_Generated_Image_pgcwr5pgcwr5pgcw.jpg"
+    ],
+    "descricao": "<p><strong>Como aplicar o Portage</strong></p><p>A aplicação do Inventário Operacionalizado Portage segue uma condução estruturada e padronizada. No curso, você aprende:</p><ul><li><strong>Como apresentar cada item</strong>, garantindo que a criança compreenda a proposta sem pistas ou induções;</li><li><strong>Como organizar o ambiente</strong> para minimizar distrações e favorecer respostas espontâneas;</li><li><strong>Como registrar adequadamente cada comportamento</strong>, anotando acertos, erros, respostas parciais e observações qualitativas relevantes;</li><li><strong>Como diferenciar itens observáveis espontaneamente</strong> daqueles que precisam ser provocados;</li><li><strong>Como adaptar a linguagem e o ritmo</strong> para crianças com TEA, atraso global, dificuldades de interação ou sensibilidade sensorial;</li><li><strong>Como decidir o ponto inicial e o ponto de interrupção</strong>, seguindo os critérios técnicos do instrumento.</li></ul><p>A aplicação é conduzida de forma leve, respeitosa e responsiva, permitindo observar não apenas o desempenho, mas o modo de funcionamento da criança: atenção, iniciativa, comunicação, engajamento e estratégias espontâneas.</p><p><strong>Como corrigir o Portage</strong></p><p>A correção é feita item por item, com base nos critérios oficiais do instrumento. No curso, você aprende:</p><ul><li><strong>Como atribuir pontuação correta</strong> a respostas completas, parciais ou ausentes;</li><li><strong>Como calcular o desempenho em cada área do desenvolvimento</strong> (socialização, linguagem, cognição, motricidade fina, motricidade ampla e autocuidados);</li><li><strong>Como interpretar padrões</strong>, como avanços inesperados, defasagens específicas ou desempenhos irregulares.</li></ul>",
+    "categoria": "Protocolos",
+    "marca": "Vetor Editora"
+  },
+  {
+    "id": 1789406252028,
+    "criadoEm": "2026-09-15T15:47:00.000Z",
+    "titulo": "Curso CONFIAS",
+    "preco": "190.00",
+    "desconto": "0",
+    "estoque": "50",
+    "status": "ativo",
+    "fotos": [
+      "/assets/img/Gemini_Generated_Image_3obdin3obdin3obd.jpg"
+    ],
+    "descricao": "<p><strong>O que você vai aprender neste curso CONFIAS?</strong></p><ul><li>Como aplicar o CONFIAS passo a passo, seguindo todos os critérios técnicos do instrumento.</li><li>Como conduzir cada tarefa (síntese, segmentação, identificação, produção, exclusão e transposição).</li><li>Como registrar corretamente as respostas da criança durante a aplicação.</li><li>Como corrigir o CONFIAS utilizando os critérios oficiais e identificando acertos e dificuldades.</li><li>Como interpretar os resultados, compreendendo o que cada desempenho revela sobre a consciência fonológica da criança.</li><li>Como identificar atrasos ou dificuldades específicas nas habilidades fonológicas.</li><li>Como usar os resultados na prática clínica ou educacional, apoiando intervenções e planos terapêuticos.</li><li>Como escrever a citação correta no relatório clínico, de maneira profissional e dentro dos padrões técnicos.</li></ul>",
+    "categoria": "Protocolos",
+    "marca": "Vetor Editora"
+  },
+  {
+    "id": 1789406252027,
+    "criadoEm": "2026-09-15T15:46:00.000Z",
+    "titulo": "Curso PROLEC",
+    "preco": "190.00",
+    "desconto": "0",
+    "estoque": "50",
+    "status": "ativo",
+    "fotos": [
+      "/assets/img/Gemini_Generated_Image_5jg3bf5jg3bf5jg3.jpg"
+    ],
+    "descricao": "<p>O PROLEC é um protocolo voltado para avaliação detalhada dos processos de leitura em crianças, permitindo identificar dificuldades específicas e orientar intervenções adequadas. Com a orientação de Josiane Vargas Terapeuta, torna-se um recurso estruturado que apoia profissionais e educadores no acompanhamento da aprendizagem.</p>",
+    "categoria": "Protocolos",
+    "marca": "Hogrefe"
+  },
+  {
+    "id": 1789406252026,
+    "criadoEm": "2026-09-15T15:43:00.000Z",
+    "titulo": "Curso Torre de Hanói e Torre de Londres",
+    "preco": "190.00",
+    "desconto": "0",
+    "estoque": "50",
+    "status": "ativo",
+    "fotos": [
+      "/assets/img/Gemini_Generated_Image_jacyzbjacyzbjacy.jpg"
+    ],
+    "descricao": "<p>A Torre de Hanói e a Torre de Londres são protocolos usados para avaliar o raciocínio lógico, o planejamento e o controle mental das crianças. Com a Josiane Terapeuta, você vai aprender como aplicar e interpretar esses testes na prática clínica.</p>",
+    "categoria": "Protocolos",
+    "marca": "Hogrefe"
+  },
+  {
+    "id": 1789406252025,
+    "criadoEm": "2026-09-15T15:42:00.000Z",
+    "titulo": "Curso POP-TT",
+    "preco": "190.00",
+    "desconto": "0",
+    "estoque": "50",
+    "status": "ativo",
+    "fotos": [
+      "/assets/img/Gemini_Generated_Image_ethy8lethy8lethy.jpg"
+    ],
+    "descricao": "<p>A aplicação segue uma sequência padronizada, com tarefas apresentadas de forma lúdica e gradual, respeitando a faixa etária e o nível de desenvolvimento da criança. No curso, o profissional aprende:</p><ul><li>O passo a passo para apresentar cada atividade;</li><li>Como conduzir a sessão sem induzir respostas;</li><li>Como registrar as produções da criança durante toda a aplicação;</li><li>Como observar indicadores qualitativos, como estratégias de resolução, engajamento, linguagem espontânea e comportamento durante a tarefa.</li></ul>",
+    "categoria": "Protocolos",
+    "marca": "Hogrefe"
+  },
+  {
+    "id": 1789406252024,
+    "criadoEm": "2026-09-15T15:40:00.000Z",
+    "titulo": "Curso SRS-2",
+    "preco": "190.00",
+    "desconto": "0",
+    "estoque": "50",
+    "status": "ativo",
+    "fotos": [
+      "/assets/img/Gemini_Generated_Image_95ezc695ezc695ez.jpg"
+    ],
+    "descricao": "<p>Este curso foi desenvolvido para profissionais que desejam dominar uma das escalas mais relevantes no processo de investigação do TEA. Ao final da formação, você estará apto(a) a aplicar, interpretar e relatar os resultados com segurança, elevando a qualidade dos seus atendimentos e fortalecendo a credibilidade do seu trabalho clínico.</p>",
+    "categoria": "Protocolos",
+    "marca": "Hogrefe"
+  },
+  {
+    "id": 1789406252023,
+    "criadoEm": "2026-09-15T15:38:00.000Z",
+    "titulo": "Curso das 5 Escalas Básicas de Avaliação do Autismo",
+    "preco": "190.00",
+    "desconto": "0",
+    "estoque": "50",
+    "status": "ativo",
+    "fotos": [
+      "/assets/img/Gemini_Generated_Image_8xe0kr8xe0kr8xe0.jpg"
+    ],
+    "descricao": "<p><strong>Curso: As 5 Escalas Básicas do Autismo</strong></p><p>M-CHAT • AQ-10 • ABC • ATA • CARS</p><p>As escalas de triagem e avaliação do autismo são ferramentas fundamentais para o profissional que atua com desenvolvimento infantil. Elas permitem identificar riscos, analisar comportamentos e orientar encaminhamentos clínicos com mais segurança. Neste curso, você aprende a aplicar, interpretar e integrar os resultados das cinco escalas mais utilizadas na prática profissional:</p>",
+    "categoria": "Protocolos",
+    "marca": "Hogrefe"
+  },
+  {
+    "id": 1789406252022,
+    "criadoEm": "2026-09-15T15:37:00.000Z",
+    "titulo": "Ebook de Citações",
+    "preco": "190.00",
+    "desconto": "0",
+    "estoque": "50",
+    "status": "ativo",
+    "fotos": [
+      "/assets/img/Gemini_Generated_Image_wwehmrwwehmrwweh.jpg"
+    ],
+    "descricao": "<p>Garanta hoje mesmo um compilado exclusivo com mais de 50 citações profissionais, prontas para usar em relatórios, laudos e pareceres. Um material completo, organizado e pensado para facilitar sua escrita e elevar a qualidade dos seus documentos clínicos.</p>",
+    "categoria": "Ebooks",
+    "marca": "Hogrefe"
+  },
+  {
+    "id": 1789406252021,
+    "criadoEm": "2026-09-15T15:35:00.000Z",
+    "titulo": "Curso Coruja PROMAT",
+    "preco": "190.00",
+    "desconto": "0",
+    "estoque": "50",
+    "status": "ativo",
+    "fotos": [
+      "/assets/img/Gemini_Generated_Image_41q0ht41q0ht41q0.jpg"
+    ],
+    "descricao": "<p><strong>No curso você vai aprender:</strong></p><ul><li><strong>Como aplicar</strong> o PROMAT de forma adequada, garantindo uma sondagem completa e fidedigna;</li><li><strong>Como interpretar os resultados</strong>, compreendendo o que cada subteste revela sobre o desenvolvimento matemático;</li><li><strong>Como citar no relatório</strong>, com linguagem técnica, clara e alinhada às exigências clínicas e educacionais.</li></ul>",
+    "categoria": "Protocolos",
+    "marca": "Pearson"
+  },
+  {
+    "id": 1789406252020,
+    "criadoEm": "2026-09-15T15:34:00.000Z",
+    "titulo": "Curso MMSE-2 Mini Exame do Estado Mental",
+    "preco": "190.00",
+    "desconto": "0",
+    "estoque": "50",
+    "status": "ativo",
+    "fotos": [
+      "/assets/img/Gemini_Generated_Image_tmhwr6tmhwr6tmhw.jpg"
+    ],
+    "descricao": "<p><strong>No curso, você aprenderá:</strong></p><ul><li><strong>Como aplicar corretamente cada versão do MMSE-2</strong>, entendendo seus objetivos, diferenças e quando utilizar cada uma;</li><li><strong>Como corrigir</strong> passo a passo, interpretando escores com segurança e clareza;</li></ul>",
+    "categoria": "Protocolos",
+    "marca": "Hogrefe"
+  },
+  {
+    "id": 1789406252019,
+    "criadoEm": "2026-09-15T15:32:00.000Z",
+    "titulo": "Workshop: Construção de Relatório",
+    "preco": "190.00",
+    "desconto": "0",
+    "estoque": "50",
+    "status": "ativo",
+    "fotos": [
+      "/assets/img/Gemini_Generated_Image_ifle62ifle62ifle.jpg"
+    ],
+    "descricao": "<p>Um relatório eficaz deve apresentar informações de forma clara, objetiva e organizada. Ele precisa explicar por que a avaliação foi realizada, quais métodos foram utilizados, o que foi observado e quais conclusões podem ser tiradas a partir dos dados. Deve evitar julgamentos, focar em comportamentos e evidências, e finalizar com recomendações práticas que ajudem a orientar família, escola ou profissionais envolvidos.</p>",
+    "categoria": "Protocolos",
+    "marca": "Hogrefe"
+  },
+  {
+    "id": 1789406252018,
+    "criadoEm": "2026-09-15T15:31:00.000Z",
+    "titulo": "Curso EFA",
+    "preco": "190.00",
+    "desconto": "0",
+    "estoque": "50",
+    "status": "ativo",
+    "fotos": [
+      "/assets/img/Gemini_Generated_Image_lv1b2flv1b2flv1b.jpg"
+    ],
+    "descricao": "<p>O Curso EFA – Escala de Funcionamento Adaptativo foi desenvolvido para profissionais que desejam aprofundar seus conhecimentos na avaliação das habilidades adaptativas, compreender o funcionamento diário do paciente e realizar intervenções mais assertivas no contexto clínico, escolar e familiar.</p>",
+    "categoria": "Protocolos",
+    "marca": "Vetor Editora"
+  },
+  {
+    "id": 1789406252017,
+    "criadoEm": "2026-09-15T15:29:00.000Z",
+    "titulo": "Workshop do Brincar",
+    "preco": "190.00",
+    "desconto": "0",
+    "estoque": "50",
+    "status": "ativo",
+    "fotos": [
+      "/assets/img/Gemini_Generated_Image_jataw0jataw0jata.jpg"
+    ],
+    "descricao": "<p>No Curso do Brincar, você vai descobrir como utilizar as brincadeiras de forma estratégica dentro dos atendimentos, compreendendo quando, como e por quê aplicá-las para potencializar o desenvolvimento da criança.</p><p>Durante o curso, você aprenderá a transformar o brincar em uma ferramenta poderosa, usando jogos e atividades lúdicas a seu favor, de maneira planejada, funcional e intencional.</p><p>Este curso vai te ensinar que o brincar com propósito gera resultados reais.</p>",
+    "categoria": "Protocolos",
+    "marca": "Hogrefe"
+  },
+  {
+    "id": 1789406252016,
+    "criadoEm": "2026-09-15T15:28:00.000Z",
+    "titulo": "Curso ALFALE",
+    "preco": "190.00",
+    "desconto": "0",
+    "estoque": "50",
+    "status": "ativo",
+    "fotos": [
+      "/assets/img/Gemini_Generated_Image_gnncemgnncemgnnc.jpg"
+    ],
+    "descricao": "<p><strong>No curso, você aprenderá passo a passo:</strong></p><p><strong>Como aplicar</strong> o ALFALE de forma adequada, garantindo uma coleta de dados precisa e realmente representativa das habilidades do avaliando.</p><p><strong>Como corrigir e interpretar</strong> cada etapa, compreendendo o que cada fase revela sobre o desenvolvimento da leitura e da escrita.</p><p><strong>Como descrever os resultados no relatório</strong>, usando linguagem técnica, objetiva e alinhada às exigências das avaliações clínicas e pedagógicas.</p><p>O objetivo é que você saia do curso seguro para utilizar o ALFALE, com domínio do processo avaliativo e capacidade de transformar os resultados em estratégias de intervenção mais assertivas para seus pacientes ou alunos.</p>",
+    "categoria": "Protocolos",
+    "marca": "Hogrefe"
+  },
+  {
+    "id": 1789406252015,
+    "criadoEm": "2026-09-15T15:26:00.000Z",
+    "titulo": "Curso ABA - Análise do Comportamento Aplicada",
+    "preco": "190.00",
+    "desconto": "0",
+    "estoque": "50",
+    "status": "ativo",
+    "fotos": [
+      "/assets/img/Gemini_Generated_Image_8motdf8motdf8mot.jpg"
+    ],
+    "descricao": "<p>Neste curso, a terapeuta Josiane Vargas, especialista em ABA e Neuropsicopedagogia, apresenta de maneira clara e aplicável os fundamentos da Análise do Comportamento Aplicada. Ao longo do conteúdo, você aprenderá a utilizar os princípios da ABA no contexto terapêutico e educacional.</p>",
+    "categoria": "Protocolos",
+    "marca": "Hogrefe"
+  },
+  {
+    "id": 1789406252014,
+    "criadoEm": "2026-09-15T15:25:00.000Z",
+    "titulo": "Curso VINELAND-3",
+    "preco": "190.00",
+    "desconto": "0",
+    "estoque": "50",
+    "status": "ativo",
+    "fotos": [
+      "/assets/img/Gemini_Generated_Image_9um12e9um12e9um1.jpg"
+    ],
+    "descricao": "<p>A Escala Vineland-3 tem como objetivo avaliar o <strong>comportamento adaptativo</strong> de indivíduos com possível <strong>Deficiência Intelectual</strong> e/ou <strong>Transtornos do Neurodesenvolvimento</strong>, considerando habilidades funcionais relacionadas à comunicação, socialização, atividades da vida diária e habilidades motoras.</p><p>É indicada para pessoas desde o <strong>nascimento até a idade adulta (até 90 anos)</strong>, sendo aplicada de forma <strong>individual</strong>, por meio de entrevista com pais, cuidadores ou responsáveis, conforme o formulário selecionado. O tempo de aplicação pode variar entre <strong>30 minutos e 1 hora e 30 minutos</strong>, dependendo da idade do avaliado e dos instrumentos utilizados.</p><p>A correção segue os <strong>critérios padronizados da Vineland-3</strong>, com conversão dos escores brutos em escores padronizados e níveis descritivos do funcionamento adaptativo, permitindo a identificação de potencialidades e dificuldades.</p><p>Os resultados subsidiam o <strong>diagnóstico diferencial</strong>, o planejamento de intervenções e devem ser devidamente <strong>citados no relatório</strong>, com descrição do instrumento, informante, contexto de aplicação e análise dos domínios avaliados.</p>",
+    "categoria": "Protocolos",
+    "marca": "Hogrefe"
+  },
+  {
+    "id": 1789406252013,
+    "criadoEm": "2026-09-15T15:23:00.000Z",
+    "titulo": "Kit de Provas Piagetianas",
+    "preco": "190.00",
+    "desconto": "0",
+    "estoque": "50",
+    "status": "ativo",
+    "fotos": [
+      "/assets/img/Gemini_Generated_Image_ugab8jugab8jugab.jpg"
+    ],
+    "descricao": "<p>As <strong>Provas Operatórias Piagetianas</strong> são instrumentos essenciais para a compreensão do <strong>nível de desenvolvimento cognitivo</strong> do aprendente, permitindo analisar como ele estrutura o pensamento, organiza informações e resolve problemas. Quando aplicadas de forma adequada, fornecem dados consistentes que enriquecem o processo avaliativo, tornando-o mais <strong>completo, preciso e fundamentado</strong>.</p><p>Neste curso, o profissional compreenderá a <strong>importância das Provas Operatórias</strong> dentro da avaliação e terá acesso a uma aula gravada com a explicação detalhada das <strong>13 provas</strong>. O conteúdo apresenta, de maneira clara e objetiva, o <strong>passo a passo da aplicação</strong>, a análise dos indicadores cognitivos observados e a interpretação adequada dos resultados, favorecendo decisões clínicas e educacionais mais seguras e embasadas.</p>",
+    "categoria": "Protocolos",
+    "marca": "Hogrefe"
+  },
+  {
+    "id": 1789406252012,
+    "criadoEm": "2026-09-15T15:22:00.000Z",
+    "titulo": "PCL-R – Protocolo Cognitivo-Linguístico",
+    "preco": "190.00",
+    "desconto": "0",
+    "estoque": "50",
+    "status": "ativo",
+    "fotos": [
+      "/assets/img/Gemini_Generated_Image_bcv6nzbcv6nzbcv6.jpg"
+    ],
+    "descricao": "<p>O <strong>Protocolo Cognitivo-Linguístico (PCL-R)</strong> é um instrumento de <strong>avaliação e rastreio</strong> amplamente revisado em sua nova edição, oferecendo <strong>dados atualizados</strong>, valores de referência e evidências científicas. Seu objetivo é avaliar o desempenho de escolares do <strong>3º ao 5º ano do Ensino Fundamental</strong> em habilidades essenciais para a aprendizagem da leitura e da escrita.</p><p>Possui versões <strong>coletiva e individual</strong> e investiga habilidades como leitura, escrita, consciência metafonológica, memória operacional fonológica, processamento auditivo e visual, velocidade de processamento e raciocínio lógico.</p><p>De aplicabilidade <strong>clínica e educacional</strong>, não se trata de um instrumento diagnóstico isolado, mas de um recurso que permite traçar o <strong>perfil cognitivo-linguístico</strong> do escolar, auxiliando na elaboração de planos de intervenção sistemáticos e intensivos. Pode ser utilizado por <strong>fonoaudiólogos, pedagogos e psicopedagogos</strong>.</p>",
+    "categoria": "Protocolos",
+    "marca": "Hogrefe"
+  },
+  {
+    "id": 1789406252011,
+    "criadoEm": "2026-09-15T15:20:00.000Z",
+    "titulo": "Curso ETDAH-II",
+    "preco": "190.00",
+    "desconto": "0",
+    "estoque": "50",
+    "status": "ativo",
+    "fotos": [
+      "/assets/img/Gemini_Generated_Image_3ilh123ilh123ilh.jpg"
+    ],
+    "descricao": "<p>A <strong>ETDAH-II</strong> pode ser utilizada para diferentes finalidades, como subsidiar a avaliação e o processo psicodiagnóstico, avaliar <strong>desatenção e hiperatividade</strong> (sintomas primários), identificar <strong>problemas de aprendizagem e comportamentos antissociais</strong> (sintomas secundários) e monitorar os efeitos das intervenções psicológicas, psicopedagógicas e/ou medicamentosas no contexto escolar.</p><p>Neste curso, você aprenderá <strong>como aplicar corretamente a ETDAH-II</strong>, realizar a <strong>correção</strong> dos escores e interpretar os resultados, utilizando o instrumento de forma segura e fundamentada no processo avaliativo e no acompanhamento das intervenções.</p>",
+    "categoria": "Protocolos",
+    "marca": "Pearson"
+  },
+  {
+    "id": 1789406252010,
+    "criadoEm": "2026-09-15T15:19:00.000Z",
+    "titulo": "Curso Teste de Stroop",
+    "preco": "190.00",
+    "desconto": "0",
+    "estoque": "50",
+    "status": "ativo",
+    "fotos": [
+      "/assets/img/Gemini_Generated_Image_qahlhbqahlhbqahl.jpg"
+    ],
+    "descricao": "<p>O <strong>Teste de Stroop</strong> é um instrumento amplamente utilizado para a avaliação das <strong>funções executivas</strong>, especialmente <strong>atenção seletiva, controle inibitório e flexibilidade cognitiva</strong>, habilidades fundamentais para o autocontrole, a organização do pensamento e o desempenho acadêmico. Por meio do teste, é possível observar a capacidade do indivíduo de <strong>focar em estímulos relevantes, inibir respostas automáticas</strong> e alternar entre diferentes regras ou tarefas, sendo um recurso importante na identificação de dificuldades associadas a condições como <strong>TDAH</strong>, alterações neurológicas e prejuízos no funcionamento executivo.</p><p>Neste curso, o profissional aprenderá <strong>como aplicar corretamente o Teste de Stroop</strong>, compreender a lógica de cada etapa, realizar a <strong>correção e interpretação dos resultados</strong> e analisar os indicadores de desempenho relacionados às funções executivas. O conteúdo também aborda <strong>como utilizar os dados obtidos na avaliação clínica ou educacional</strong>, contribuindo para um olhar mais preciso sobre os processos atencionais e de autorregulação e para o direcionamento adequado das intervenções.</p>",
+    "categoria": "Protocolos",
+    "marca": "Hogrefe"
+  },
+  {
+    "id": 1789406252009,
+    "criadoEm": "2026-09-15T15:17:00.000Z",
+    "titulo": "Curso Inventário de Estilos Parentais",
+    "preco": "190.00",
+    "desconto": "0",
+    "estoque": "50",
+    "status": "ativo",
+    "fotos": [
+      "/assets/img/Gemini_Generated_Image_ypa8lsypa8lsypa8.jpg"
+    ],
+    "descricao": "<p>O <strong>Inventário de Estilos Parentais (IEP)</strong> é um instrumento que avalia, de forma objetiva, <strong>como os pais educam e se relacionam com seus filhos</strong>, identificando <strong>práticas parentais positivas e negativas</strong>, como afeto e apoio, comunicação e acompanhamento da rotina, estabelecimento de regras e limites, disciplina, consequências e a presença de comportamentos coercitivos, negligentes ou inconsistentes.</p><p>Neste curso, o profissional aprenderá <strong>como aplicar corretamente o IEP</strong>, realizar a correção dos resultados, compreender os <strong>indicadores de cada estilo parental</strong> e interpretar os dados de forma clínica e educacional. O conteúdo também orienta sobre <strong>como utilizar os resultados</strong> no planejamento de intervenções, na orientação familiar e na elaboração de relatórios claros e fundamentados, contribuindo para uma atuação mais estratégica junto à criança e à família.</p>",
+    "categoria": "Protocolos",
+    "marca": "Hogrefe"
+  },
+  {
+    "id": 1789406252008,
+    "criadoEm": "2026-09-15T15:16:00.000Z",
+    "titulo": "Curso Audibilização",
+    "preco": "190.00",
+    "desconto": "0",
+    "estoque": "50",
+    "status": "ativo",
+    "fotos": [
+      "/assets/img/Gemini_Generated_Image_oncx0goncx0goncx.jpg"
+    ],
+    "descricao": "<p><strong>Neste curso, você aprenderá:</strong></p><ul><li>Como <strong>aplicar corretamente</strong> o Teste de Audibilização</li><li>Como <strong>corrigir e interpretar</strong> os resultados</li><li>Como <strong>citar</strong> o teste de forma adequada no relatório psicopedagógico</li></ul><p>Além disso, o material já acompanha o <strong>teste pronto para imprimir</strong>, uma vez que se trata de um instrumento de <strong>domínio público</strong>, facilitando o uso imediato na prática clínica e escolar.</p><p>Ideal para profissionais que atuam na avaliação psicopedagógica e no acompanhamento de crianças em fase de alfabetização.</p>",
+    "categoria": "Protocolos",
+    "marca": "Hogrefe"
+  },
+  {
+    "id": 1789406252007,
+    "criadoEm": "2026-09-15T15:13:00.000Z",
+    "titulo": "Curso de Construção de Plano Terapêutico",
+    "preco": "190.00",
+    "desconto": "0",
+    "estoque": "50",
+    "status": "ativo",
+    "fotos": [
+      "/assets/img/Gemini_Generated_Image_i0oqo8i0oqo8i0oq.jpg"
+    ],
+    "descricao": "<p>Neste curso, você vai aprender a <strong>construir um Plano Terapêutico individualizado</strong>, claro, funcional e alinhado à prática clínica, com foco em crianças e adolescentes com dificuldades de aprendizagem e transtornos do neurodesenvolvimento.</p><p><strong>Você aprenderá a:</strong></p><ul><li>Compreender <strong>o que é um Plano Terapêutico</strong> e sua função na prática clínica</li><li>Traduzir dados da <strong>avaliação psicopedagógica</strong> em objetivos terapêuticos</li><li>Definir <strong>metas realistas, mensuráveis e funcionais</strong></li><li>Estruturar planos terapêuticos para diferentes perfis (TDAH, TEA, DI, dificuldades de aprendizagem)</li><li>Evitar erros comuns na construção do plano</li><li>Elaborar planos que façam sentido <strong>na prática</strong>, e não apenas no papel.</li></ul>",
+    "categoria": "Protocolos",
+    "marca": "Hogrefe"
+  },
+  {
+    "id": 1789406252006,
+    "criadoEm": "2026-09-15T15:10:00.000Z",
+    "titulo": "Instrumento Qualitativo de Avaliação das Habilidades Preditoras de Leitura e de Escrita",
+    "preco": "190.00",
+    "desconto": "0",
+    "estoque": "50",
+    "status": "ativo",
+    "fotos": [
+      "/assets/img/Gemini_Generated_Image_e0d3y2e0d3y2e0d3.jpg"
+    ],
+    "descricao": "<p>Aprenda, de forma <strong>prática e objetiva</strong>, a aplicar, corrigir e interpretar o <strong>Instrumento Qualitativo de Avaliação das Habilidades Preditoras de Leitura e Escrita</strong>, compreendendo como utilizar seus resultados de maneira técnica e segura em relatórios.</p><p><strong>O que você vai aprender</strong></p><ul><li>O que são habilidades preditoras de leitura e escrita</li><li>Fundamentos do instrumento qualitativo</li><li>Como aplicar o instrumento passo a passo</li><li>Critérios de correção e análise dos resultados</li><li>Interpretação pedagógica e funcional</li><li>Como <strong>citar corretamente</strong> os resultados no relatório</li><li>Relação dos achados com o processo de alfabetização</li><li>Indicações para intervenção a partir da avaliação</li></ul>",
+    "categoria": "Protocolos",
+    "marca": "Hogrefe"
+  },
+  {
+    "id": 1789406252005,
+    "criadoEm": "2026-09-15T15:08:00.000Z",
+    "titulo": "Curso EP-CEIHA",
+    "preco": "190.00",
+    "desconto": "0",
+    "estoque": "50",
+    "status": "ativo",
+    "fotos": [
+      "/assets/img/Gemini_Generated_Image_pl91s3pl91s3pl91.jpg"
+    ],
+    "descricao": "<p>A Escala EP-CEIHA é um instrumento que tem como objetivo identificar <strong>Problemas de Comportamentos Externalizantes</strong> (como impulsividade, agressividade) e <strong>Internalizantes</strong> (como ansiedade, retraimento) que afetam diretamente as <strong>Habilidades Acadêmicas</strong> (Leitura, Escrita, Matemática) de crianças, ajudando no rastreio e planejamento de intervenções educacionais mais eficazes.</p><p><strong>Para que serve?</strong></p><p><strong>Rastreio:</strong> Identificar precocemente problemas comportamentais que afetam o desempenho escolar.</p><p><strong>Monitoramento:</strong> Acompanhar a evolução do comportamento da criança.</p><p><strong>Planejamento:</strong> Direcionar intervenções psicopedagógicas e educacionais.</p><p><strong>Quem utiliza?</strong></p><p>Profissionais como psicopedagogos, psicólogos, pedagogos e outros profissionais da saúde e educação.</p><p><strong>População alvo:</strong> Alunos do 1º ao 5º ano do ensino fundamental.</p><p><strong>Correção manual</strong></p><p>Instrumento não restrito</p>",
+    "categoria": "Protocolos",
+    "marca": "Hogrefe"
+  },
+  {
+    "id": 1789406252004,
+    "criadoEm": "2026-09-15T15:06:00.000Z",
+    "titulo": "Combo de Cursos para Avaliação do TDAH Infantojuvenil",
+    "preco": "190.00",
+    "desconto": "0",
+    "estoque": "50",
+    "status": "ativo",
+    "fotos": [
+      "/assets/img/Gemini_Generated_Image_vv5kpgvv5kpgvv5k.jpg"
+    ],
+    "descricao": "<p>✔ <strong>ETDAH-PAIS</strong> — versão respondida pelos pais/cuidadores, avalia comportamentos de atenção, hiperatividade e impulsividade no contexto familiar em crianças/adolescentes de ~2 a 17 anos.</p><p>✔ <strong>ETDAH-CriAd</strong> — versão de autoavaliação feita pela criança/adolescente sobre seus próprios sintomas comportamentais.</p><p>✔ <strong>ETDAH II</strong> — escala focada no contexto escolar/professores, com aplicação e correção detalhadas, voltada para crianças/adolescentes de 6 a 18 anos</p>",
+    "categoria": "Protocolos",
+    "marca": "Pearson"
+  },
+  {
+    "id": 1789406252003,
+    "criadoEm": "2026-09-15T15:02:00.000Z",
+    "titulo": "Combo de Avaliação do TDAH em Adultos",
+    "preco": "190.00",
+    "desconto": "0",
+    "estoque": "50",
+    "status": "ativo",
+    "fotos": [
+      "/assets/img/Gemini_Generated_Image_fqnbtafqnbtafqnb.jpg"
+    ],
+    "descricao": "<p>Este curso foi desenvolvido para <strong>TERAPEUTAS</strong> que desejam aprofundar-se na avaliação do Transtorno de Déficit de Atenção e Hiperatividade (TDAH) em adultos, utilizando instrumentos reconhecidos e cientificamente validados.</p><p>. <strong>ETDAH-AD</strong> – Escala de Transtorno de Déficit de Atenção e Hiperatividade para Adultos</p><p>. <strong>EPF-TDAH</strong> – Escala de Processos Funcionais para TDAH</p><p>. <strong>BDEFS</strong> – Escala de Dificuldades de Funções Executivas de Barkley</p>",
+    "categoria": "Protocolos",
+    "marca": "Vetor Editora"
+  },
+  {
+    "id": 1789406252002,
+    "criadoEm": "2026-09-15T14:59:00.000Z",
+    "titulo": "Comunidade - Encontros Semanais e Protocolos Atualizados",
+    "preco": "190.00",
+    "desconto": "0",
+    "estoque": "50",
+    "status": "ativo",
+    "fotos": [
+      "/assets/img/Gemini_Generated_Image_8awmfp8awmfp8awm.jpg"
+    ],
+    "descricao": "<p>A comunidade reúne um acervo abrangente de formações essenciais para profissionais que atuam no neurodesenvolvimento, avaliação e intervenção psicopedagógica.</p>",
+    "categoria": "Protocolos",
+    "marca": "Hogrefe",
+    "linha": "",
+    "modelo": "",
+    "modeloAlfa": "",
+    "fabricante": "",
+    "formato": "",
+    "cargaHoraria": "",
+    "nivel": "",
+    "certificado": "",
+    "kiwifyCheckoutUrl": "https://pay.kiwify.com.br/NMJiihl"
+  },
+  {
+    "id": 1789406252001,
+    "criadoEm": "2026-09-15T14:55:00.000Z",
+    "titulo": "Avaliação da Compreensão Leitora de Textos Expositivos",
+    "preco": "190.00",
+    "desconto": "0",
+    "estoque": "50",
+    "status": "ativo",
+    "fotos": [
+      "/assets/img/Gemini_Generated_Image_dc8syydc8syydc8s.jpg"
+    ],
+    "descricao": "<p>O <strong>Teste de Avaliação da Compreensão Leitora de Textos Expositivos</strong> é um instrumento essencial para a investigação de dificuldades de leitura, sendo <strong>imprescindível na avaliação da dislexia</strong>.</p><p>Por meio dele, é possível analisar diferentes processos envolvidos na compreensão de textos informativos, proporcionando uma visão ampla e qualificada do desempenho do paciente.</p>",
+    "categoria": "Protocolos",
+    "marca": "Pearson"
+  },
+  {
+    "id": 1789406252000,
+    "criadoEm": "2026-09-15T14:51:00.000Z",
+    "titulo": "Teste de Triagem do Desenvolvimento DENVER II",
+    "preco": "190.00",
+    "desconto": "0",
+    "estoque": "50",
+    "status": "ativo",
+    "fotos": [
+      "/assets/img/Gemini_Generated_Image_9loank9loank9loa.jpg"
+    ],
+    "descricao": "<p>Aplicação, correção e citação no Parecer Clínico.</p><p>Com este instrumento você vai avaliar crianças de 0 a 6/7 anos.</p><p>Um instrumento comumente solicitado por médicos para avaliação do autismo.</p><p>Teste não restrito!</p><p>O DENVER de uma forma tão simples e prática como você nunca viu!</p><p>Até você que já fez algum curso do DENVER vai se surpreender com o nosso curso.</p>",
+    "categoria": "Protocolos",
+    "marca": "Hogrefe"
+  },
+  {
+    "id": 1789406251999,
+    "criadoEm": "2026-09-15T14:47:00.000Z",
+    "titulo": "Curso TESTE TOKEN - Aplicação e Correção do Teste",
+    "preco": "190.00",
+    "desconto": "0",
+    "estoque": "50",
+    "status": "ativo",
+    "fotos": [
+      "/assets/img/WhatsApp Image 2026-09-15 at 14.46.50.jpeg"
+    ],
+    "descricao": "<p>O Token Test avalia a compreensão verbal, linguagem receptiva, memória operacional, controle inibitório e atenção.</p><p>O público alvo é crianças dos 7 aos 10 anos e idosos.</p><p>Pode ser utilizado para avaliação qualitativa para outras faixas etárias, inclusive na avaliação do TDAH no adulto e infantojuvenil.</p><p>Teste não restrito e incluso no curso.</p>",
+    "categoria": "Protocolos",
+    "marca": "Hogrefe"
+  },
+  {
+    "id": 1789406251277,
+    "criadoEm": "2026-09-15T14:19:00.000Z",
+    "titulo": "Curso PAY ATTENTION! - Programa de Intervenção dos Processos Atencionais para Crianças",
+    "preco": "190.00",
+    "desconto": "0",
+    "estoque": "50",
+    "status": "ativo",
+    "fotos": [
+      "/assets/img/Gemini_Generated_Image_s9c8fms9c8fms9c8.jpg"
+    ],
+    "descricao": "Curso PAY ATTENTION! — Programa de Intervenção dos Processos Atencionais para Crianças, publicado pela Hogrefe. Um material completo para profissionais que trabalham no desenvolvimento e na intervenção da atenção infantil.",
+    "categoria": "Protocolos",
+    "marca": "Hogrefe"
+  }
+]

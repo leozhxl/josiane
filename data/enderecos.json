@@ -1,0 +1,24 @@
+[
+  {
+    "userId": 1782275544472,
+    "cep": "88960-000",
+    "rua": "rua aniceto silveira",
+    "numero": "1609",
+    "complemento": "",
+    "nome": "leo henrique candido",
+    "telefone": "(48) 99659-7421",
+    "predefinido": true,
+    "id": 1782277812771
+  },
+  {
+    "userId": 1782409735108,
+    "cep": "88960-000",
+    "rua": "rua niceto silveira",
+    "numero": "1011",
+    "complemento": "",
+    "nome": "leo henrique candido",
+    "telefone": "(48) 99659-7421",
+    "predefinido": true,
+    "id": 1782409795240
+  }
+]
