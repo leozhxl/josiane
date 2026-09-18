@@ -1,11 +1,15 @@
 const router = require('express').Router();
 const multer = require('multer');
 const path   = require('path');
+const fs     = require('fs');
 const { read, write } = require('../middleware/db');
 const { authAdmin } = require('../middleware/auth');
 
 const storage = multer.diskStorage({
-  destination: path.join(__dirname, '..', 'public', 'uploads'),
+  destination: (req, file, cb) => {
+    const dir = path.join(__dirname, '..', 'public', 'uploads');
+    try { fs.mkdirSync(dir, { recursive: true }); cb(null, dir); } catch (e) { cb(e); }
+  },
   filename: (req, file, cb) => cb(null, Date.now() + path.extname(file.originalname))
 });
 const upload = multer({ storage, limits: { fileSize: 5 * 1024 * 1024 } });
