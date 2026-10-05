@@ -30,6 +30,9 @@ app.use('/api/campanhas', require('./routes/campanhas'));
 app.use('/api/visitas',   require('./routes/visitas'));
 app.use('/api/kiwify',    require('./routes/kiwify'));
 
+/* ── ATALHO DO PAINEL ───────────────────────────────────────── */
+app.get(['/admin', '/admin/'], (req, res) => res.redirect(301, '/admin.html'));
+
 /* ── FALLBACK SPA ───────────────────────────────────────────── */
 app.get('*', (req, res) => {
   if (req.path.startsWith('/api')) return res.status(404).json({ error: 'Rota não encontrada.' });
