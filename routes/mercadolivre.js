@@ -24,26 +24,27 @@ const ML_API  = 'https://api.mercadolibre.com';
 const ML_AUTH = 'https://auth.mercadolivre.com.br';
 
 /* ── TOKEN ML ────────────────────────────────────────────── */
-function getMlToken() {
-  try { return read('ml_token.json'); } catch { return null; }
+async function getMlToken() {
+  const t = await read('ml_token.json', null);
+  return t && t.access_token ? t : null;
 }
 function saveMlToken(data) {
-  write('ml_token.json', { ...data, salvoEm: Date.now() });
+  return write('ml_token.json', { ...data, salvoEm: Date.now() });
 }
 
 async function mlToken() {
-  const t = getMlToken();
-  if (!t) throw new Error('Conta Mercado Livre não autorizada. Acesse o painel admin > Integrações.');
+  const t = await getMlToken();
+  if (!t) throw new Error('Conta Mercado Livre não autorizada. Acesse o painel admin > Configurações.');
 
   /* renova se expirar em menos de 5 min */
-  if (Date.now() - t.salvoEm > (t.expires_in - 300) * 1000) {
+  if (Date.now() - (t.salvoEm || 0) > ((t.expires_in || 0) - 300) * 1000) {
     const r = await axios.post(`${ML_API}/oauth/token`, {
       grant_type:    'refresh_token',
       client_id:     process.env.ML_APP_ID,
       client_secret: process.env.ML_CLIENT_SECRET,
       refresh_token: t.refresh_token
     });
-    saveMlToken(r.data);
+    await saveMlToken(r.data);
     return r.data.access_token;
   }
   return t.access_token;
@@ -51,8 +52,8 @@ async function mlToken() {
 
 /* ── OAUTH — GERA URL DE AUTORIZAÇÃO ────────────────────── */
 router.get('/auth-url', authAdmin, (req, res) => {
-  if (!process.env.ML_APP_ID) {
-    return res.status(400).json({ error: 'ML_APP_ID não configurado no .env' });
+  if (!process.env.ML_APP_ID || !process.env.ML_REDIRECT_URI) {
+    return res.status(400).json({ error: 'ML_APP_ID / ML_REDIRECT_URI não configurados no .env' });
   }
   const url = `${ML_AUTH}/authorization?response_type=code`
     + `&client_id=${process.env.ML_APP_ID}`
@@ -72,7 +73,7 @@ router.get('/callback', async (req, res) => {
       code,
       redirect_uri:  process.env.ML_REDIRECT_URI
     });
-    saveMlToken(r.data);
+    await saveMlToken(r.data);
     res.redirect('/admin.html?ml=ok');
   } catch (err) {
     console.error('ML callback erro:', err.response?.data || err.message);
@@ -82,14 +83,13 @@ router.get('/callback', async (req, res) => {
 
 /* ── STATUS DA CONEXÃO ML ────────────────────────────────── */
 router.get('/status', authAdmin, async (req, res) => {
-  const t = getMlToken();
-  if (!t) return res.json({ conectado: false });
+  if (!(await getMlToken())) return res.json({ conectado: false });
   try {
     const token = await mlToken();
     const info  = await axios.get(`${ML_API}/users/me`, { headers: { Authorization: `Bearer ${token}` } });
     res.json({ conectado: true, usuario: info.data.nickname, id: info.data.id });
-  } catch {
-    res.json({ conectado: false });
+  } catch (err) {
+    res.json({ conectado: false, erro: err.response?.data?.message || err.message });
   }
 });
 
@@ -98,12 +98,12 @@ router.get('/status', authAdmin, async (req, res) => {
 router.post('/publicar/:produtoId', authAdmin, async (req, res) => {
   try {
     const token    = await mlToken();
-    const produtos = read('produtos.json');
-    const produto  = produtos.find(p => p.id === +req.params.produtoId);
+    const produtos = await read('produtos.json');
+    const produto  = produtos.find(p => String(p.id) === req.params.produtoId);
     if (!produto) return res.status(404).json({ error: 'Produto não encontrado.' });
 
     /* categoria padrão — em produção use GET /sites/MLB/domain_discovery/search */
-    const categoriaML = req.body.categoriaML || 'MLB3530'; // Ventiladores
+    const categoriaML = req.body.categoriaML || 'MLB3530';
 
     const body = {
       title:          produto.nome,
@@ -118,17 +118,15 @@ router.post('/publicar/:produtoId', authAdmin, async (req, res) => {
       sale_terms: [{ id:'WARRANTY_TYPE', value_name:'Garantia do fabricante' }, { id:'WARRANTY_TIME', value_name:'1 año' }]
     };
 
-    /* adiciona foto se existir */
-    if (produto.fotos && produto.fotos.length) {
-      body.pictures = produto.fotos.map(url => ({ source: url }));
-    }
+    const fotos = (produto.fotos && produto.fotos.length) ? produto.fotos : (produto.imagem ? [produto.imagem] : []);
+    if (fotos.length) body.pictures = fotos.map(url => ({ source: url }));
 
     const r = await axios.post(`${ML_API}/items`, body, { headers: { Authorization: `Bearer ${token}` } });
 
     /* salva o mlId no produto */
     produto.mlId     = r.data.id;
     produto.mlStatus = r.data.status;
-    write('produtos.json', produtos);
+    await write('produtos.json', produtos);
 
     res.json({ ok: true, mlId: r.data.id, permalink: r.data.permalink });
   } catch (err) {
@@ -142,8 +140,8 @@ router.post('/publicar/:produtoId', authAdmin, async (req, res) => {
 router.put('/atualizar/:produtoId', authAdmin, async (req, res) => {
   try {
     const token    = await mlToken();
-    const produtos = read('produtos.json');
-    const produto  = produtos.find(p => p.id === +req.params.produtoId);
+    const produtos = await read('produtos.json');
+    const produto  = produtos.find(p => String(p.id) === req.params.produtoId);
     if (!produto?.mlId) return res.status(400).json({ error: 'Produto não publicado no ML.' });
 
     await axios.put(`${ML_API}/items/${produto.mlId}`, {
@@ -157,31 +155,35 @@ router.put('/atualizar/:produtoId', authAdmin, async (req, res) => {
   }
 });
 
-/* ── WEBHOOK ML (notificações de venda) ──────────────────── */
+/* ── WEBHOOK ML (notificações de venda) ──────────────────────
+   Processa antes de responder: no Vercel nada roda depois da resposta. */
 router.post('/webhook', async (req, res) => {
-  res.sendStatus(200);
   try {
-    const { topic, resource } = req.body;
-    if (topic !== 'orders_v2') return;
+    const { topic, resource } = req.body || {};
+    if (topic !== 'orders_v2' || !resource) return res.sendStatus(200);
 
     const token = await mlToken();
     const order = await axios.get(`${ML_API}${resource}`, { headers: { Authorization: `Bearer ${token}` } });
     const o     = order.data;
+    if (o.status !== 'paid') return res.sendStatus(200);
 
-    if (o.status !== 'paid') return;
+    /* o ML reenvia a mesma notificação várias vezes — desconta estoque uma vez só */
+    const processadas = await read('ml_ordens.json');
+    if (processadas.includes(o.id)) return res.sendStatus(200);
 
-    /* desconta estoque de cada item vendido */
-    const produtos = read('produtos.json');
+    const produtos = await read('produtos.json');
     (o.order_items || []).forEach(item => {
       const titulo = item.item?.title || '';
       const prod   = produtos.find(p => p.mlId === item.item?.id || p.nome === titulo);
-      if (prod) prod.estoque = Math.max(0, prod.estoque - item.quantity);
+      if (prod) prod.estoque = Math.max(0, (Number(prod.estoque) || 0) - item.quantity);
     });
-    write('produtos.json', produtos);
+    await write('produtos.json', produtos);
+    await write('ml_ordens.json', [o.id, ...processadas].slice(0, 2000));
     console.log(`Venda ML ordem ${o.id} processada.`);
   } catch (err) {
     console.error('Webhook ML erro:', err.message);
   }
+  res.sendStatus(200);
 });
 
 /* ── LISTAR ANÚNCIOS DO ML ───────────────────────────────── */
@@ -196,7 +198,6 @@ router.get('/meus-anuncios', authAdmin, async (req, res) => {
     const offset = parseInt(req.query.offset) || 0;
     const limit  = 20;
 
-    /* busca itens do vendedor */
     const searchUrl = q
       ? `${ML_API}/sites/MLB/search?seller_id=${userId}&q=${encodeURIComponent(q)}&limit=${limit}&offset=${offset}`
       : `${ML_API}/users/${userId}/items/search?limit=${limit}&offset=${offset}`;
@@ -206,7 +207,6 @@ router.get('/meus-anuncios', authAdmin, async (req, res) => {
     let itens = [];
 
     if (q) {
-      /* busca já retorna detalhes */
       const results = searchRes.data.results || [];
       itens = results.map(i => ({
         id:       i.id,
@@ -217,7 +217,6 @@ router.get('/meus-anuncios', authAdmin, async (req, res) => {
         permalink: i.permalink
       }));
     } else {
-      /* lista só IDs → buscar em batch */
       const ids = (searchRes.data.results || []);
       if (ids.length === 0) return res.json({ itens: [], total: 0 });
 
@@ -251,6 +250,9 @@ router.post('/importar', authAdmin, async (req, res) => {
     const { mlId } = req.body;
     if (!mlId) return res.status(400).json({ error: 'mlId obrigatório.' });
 
+    const anuncios = await read('anuncios.json');
+    if (anuncios.some(a => a.mlId === mlId)) return res.status(409).json({ error: 'Este anúncio já foi importado.' });
+
     const token = await mlToken();
 
     const [itemRes, descRes] = await Promise.allSettled([
@@ -264,7 +266,6 @@ router.post('/importar', authAdmin, async (req, res) => {
 
     const item = itemRes.value.data;
     const descricao = descRes.status === 'fulfilled' ? descRes.value.data.plain_text || '' : '';
-
     const fotos = (item.pictures || []).map(p => p.secure_url || p.url).filter(Boolean);
 
     const novo = {
@@ -281,9 +282,8 @@ router.post('/importar', authAdmin, async (req, res) => {
       mlPermalink: item.permalink
     };
 
-    const anuncios = read('anuncios.json');
     anuncios.push(novo);
-    write('anuncios.json', anuncios);
+    await write('anuncios.json', anuncios);
 
     res.status(201).json(novo);
   } catch (err) {
@@ -292,8 +292,8 @@ router.post('/importar', authAdmin, async (req, res) => {
 });
 
 /* ── DESCONECTAR ─────────────────────────────────────────── */
-router.delete('/desconectar', authAdmin, (req, res) => {
-  try { write('ml_token.json', {}); } catch {}
+router.delete('/desconectar', authAdmin, async (req, res) => {
+  await write('ml_token.json', {});
   res.json({ ok: true });
 });
 

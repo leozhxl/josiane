@@ -112,8 +112,8 @@
             <canvas class="db-sparkline" id="spark-faturamento" width="100" height="40"></canvas>
           </div>
           <div class="db-metric-value" id="dash-faturamento">R$ 0</div>
-          <div class="db-metric-delta db-delta-up" id="delta-faturamento">
-            <i class="ti ti-trending-up"></i> <span>4,8%</span> em relação a ontem
+          <div class="db-metric-delta" id="delta-faturamento">
+            <i class="ti ti-minus"></i> carregando…
           </div>
         </div>
         <div class="db-metric-card">
@@ -122,8 +122,8 @@
             <canvas class="db-sparkline" id="spark-pedidos" width="100" height="40"></canvas>
           </div>
           <div class="db-metric-value" id="dash-pedidos">0</div>
-          <div class="db-metric-delta db-delta-up" id="delta-pedidos">
-            <i class="ti ti-trending-up"></i> <span>2,1%</span> em relação a ontem
+          <div class="db-metric-delta" id="delta-pedidos">
+            <i class="ti ti-minus"></i> carregando…
           </div>
         </div>
         <div class="db-metric-card">
@@ -131,9 +131,9 @@
             <span class="db-metric-label">Visitantes de Hoje</span>
             <canvas class="db-sparkline" id="spark-visitantes" width="100" height="40"></canvas>
           </div>
-          <div class="db-metric-value" id="dash-visitantes">–</div>
-          <div class="db-metric-delta db-delta-up" id="delta-visitantes">
-            <i class="ti ti-trending-up"></i> <span>9,3%</span> em relação a ontem
+          <div class="db-metric-value" id="dash-visitantes">0</div>
+          <div class="db-metric-delta" id="delta-visitantes">
+            <i class="ti ti-minus"></i> carregando…
           </div>
         </div>
         <div class="db-metric-card">
@@ -142,8 +142,8 @@
             <canvas class="db-sparkline" id="spark-clientes" width="100" height="40"></canvas>
           </div>
           <div class="db-metric-value" id="dash-clientes">0</div>
-          <div class="db-metric-delta db-delta-up" id="delta-clientes">
-            <i class="ti ti-trending-up"></i> <span>1,2%</span> em relação a ontem
+          <div class="db-metric-delta" id="delta-clientes">
+            <i class="ti ti-minus"></i> carregando…
           </div>
         </div>
       </div>
@@ -155,13 +155,18 @@
           <div class="db-chart-header">
             <div>
               <div class="db-chart-title">Análise de Vendas</div>
-              <div class="db-chart-sub">Receita mensal acumulada</div>
+              <div class="db-chart-sub" id="db-chart-sub-vendas">Carregando…</div>
+            </div>
+            <div class="db-modo-wrap" id="db-modo-wrap">
+              <button class="db-modo-btn active" data-modo="receita" onclick="alternarModo(this)">Receita</button>
+              <button class="db-modo-btn" data-modo="pedidos" onclick="alternarModo(this)">Pedidos</button>
             </div>
             <div class="db-period-tabs">
               <button class="db-period"        data-period="hoje"   onclick="mudarPeriodo(this)">Hoje</button>
               <button class="db-period"        data-period="semana" onclick="mudarPeriodo(this)">Semanal</button>
               <button class="db-period active" data-period="mes"    onclick="mudarPeriodo(this)">Mensal</button>
               <button class="db-period"        data-period="ano"    onclick="mudarPeriodo(this)">Anual</button>
+              <button class="db-period"        data-period="custom" onclick="mudarPeriodo(this)">Personalizado</button>
             </div>
           </div>
           <div class="db-chart-canvas-wrap">
@@ -204,7 +209,7 @@
               </div>
             </div>
             <div class="bsp-dropdown" id="bsp-filter-wrap">
-              <button class="bsp-btn" onclick="toggleBSPFilter()"><i class="ti ti-adjustments-horizontal"></i> Filtrar <i class="ti ti-chevron-down"></i></button>
+              <button class="bsp-btn" onclick="toggleBSPFilter()"><i class="ti ti-adjustments-horizontal"></i> Filtro: <span id="bsp-filter-label">Todos</span> <i class="ti ti-chevron-down"></i></button>
               <div class="bsp-dropdown-menu" id="bsp-filter-menu" style="display:none">
                 <div onclick="setFilterBSP('todos','Todos')">Todos</div>
                 <div onclick="setFilterBSP('em_estoque','Em Estoque')">Em Estoque</div>
@@ -560,7 +565,7 @@
           <i class="ti ti-filter" style="font-size:2rem;color:#f57c00"></i>
           <div>
             <h3>Monitoramento do Funil de Negociações</h3>
-            <p>Acompanhe cada etapa — desde o primeiro contato até o fechamento — com registro automático de ligações e envio de propostas.</p>
+            <p>Acompanhe cada etapa — do primeiro contato ao fechamento. Arraste os cards entre as colunas para mudar a etapa; clique num card para editar, registrar o histórico ou excluir.</p>
           </div>
         </div>
 
@@ -674,7 +679,7 @@
           <div class="mkt-hero-icon"><i class="ti ti-mail-bolt"></i></div>
           <div>
             <h3 class="mkt-hero-title">Marketing por E-mail</h3>
-            <p class="mkt-hero-sub">Envie campanhas segmentadas com base no comportamento dos seus clientes e acompanhe os resultados em tempo real.</p>
+            <p class="mkt-hero-sub">Envie campanhas segmentadas para os clientes que aceitaram receber novidades (newsletter). Cada e-mail traz um link de descadastro.</p>
           </div>
         </div>
 
@@ -695,19 +700,24 @@
             </div>
           </div>
           <div class="mkt-stat-card" style="--accent:#f57c00">
-            <div class="mkt-stat-icon"><i class="ti ti-eye"></i></div>
+            <div class="mkt-stat-icon"><i class="ti ti-user-check"></i></div>
             <div class="mkt-stat-info">
-              <strong id="mkt-taxa-abertura">–</strong>
-              <span>Taxa de abertura</span>
+              <strong id="mkt-inscritos">0</strong>
+              <span>Inscritos na newsletter</span>
             </div>
           </div>
           <div class="mkt-stat-card" style="--accent:#6a1b9a">
-            <div class="mkt-stat-icon"><i class="ti ti-click"></i></div>
+            <div class="mkt-stat-icon"><i class="ti ti-mail-check"></i></div>
             <div class="mkt-stat-info">
-              <strong>–</strong>
-              <span>Taxa de cliques</span>
+              <strong id="mkt-emails-total">0</strong>
+              <span>E-mails enviados</span>
             </div>
           </div>
+        </div>
+
+        <div class="mkt-smtp-aviso" id="mkt-smtp-aviso" style="display:none">
+          <i class="ti ti-alert-triangle"></i>
+          <div><strong>Envio de e-mail não configurado.</strong> Defina <code>SMTP_HOST</code>, <code>SMTP_PORT</code>, <code>SMTP_USER</code> e <code>SMTP_PASS</code> no <code>.env</code> (e nas variáveis do Vercel). Com Gmail: <code>smtp.gmail.com</code>, porta <code>465</code> e uma <em>senha de app</em>.</div>
         </div>
 
         <!-- Formulário de campanha -->
@@ -727,15 +737,15 @@
               <div class="mkt-segment-pills">
                 <label class="mkt-seg-pill">
                   <input type="radio" name="mkt-seg" value="todos" checked>
-                  <span><i class="ti ti-users"></i> Todos os clientes</span>
+                  <span><i class="ti ti-users"></i> Todos os inscritos <small id="mkt-seg-n-todos"></small></span>
                 </label>
                 <label class="mkt-seg-pill">
                   <input type="radio" name="mkt-seg" value="novos">
-                  <span><i class="ti ti-user-plus"></i> Novos (30 dias)</span>
+                  <span><i class="ti ti-user-plus"></i> Novos (30 dias) <small id="mkt-seg-n-novos"></small></span>
                 </label>
                 <label class="mkt-seg-pill">
                   <input type="radio" name="mkt-seg" value="inativos">
-                  <span><i class="ti ti-user-off"></i> Inativos (60+ dias)</span>
+                  <span><i class="ti ti-user-off"></i> Inativos (60+ dias) <small id="mkt-seg-n-inativos"></small></span>
                 </label>
               </div>
               <select id="mkt-segmento" style="display:none">
@@ -800,7 +810,7 @@
           <label style="font-size:.8rem;font-weight:700;color:#555;display:block;margin:14px 0 4px">URL do Webhook (cole na Kiwify em Configurações &gt; Webhooks)</label>
           <div class="crm-kiwify-url-row">
             <input type="text" id="kiwify-webhook-url" readonly>
-            <button type="button" class="adm-btn" onclick="copiarWebhookKiwify()"><i class="ti ti-copy"></i> Copiar</button>
+            <button type="button" class="adm-btn" onclick="copiarWebhookKiwify(this)"><i class="ti ti-copy"></i> Copiar</button>
           </div>
           <p class="crm-kiwify-hint">Selecione os eventos de <strong>pedido pago</strong>, <strong>reembolsado</strong> e <strong>chargeback</strong> na Kiwify. O token de segurança já está incluso na URL acima (configurado no <code>.env</code> como <code>KIWIFY_WEBHOOK_TOKEN</code>).</p>
 
@@ -881,7 +891,7 @@
           <div class="crm-modal-icon"><i class="ti ti-user-plus"></i></div>
           <div>
             <div class="crm-modal-title" id="modal-lead-titulo">Novo Lead</div>
-            <div class="crm-modal-sub">Cadastre um novo contato no funil</div>
+            <div class="crm-modal-sub" id="modal-lead-sub">Cadastre um novo contato no funil</div>
           </div>
           <button onclick="fecharModalLead()" class="crm-modal-close"><i class="ti ti-x"></i></button>
         </div>
@@ -935,7 +945,7 @@
               <label class="crm-field-label">Produto / Serviço</label>
               <div class="crm-input-wrap">
                 <i class="ti ti-package"></i>
-                <input type="text" id="lead-produto" class="crm-input" placeholder="Ex: Ar-condicionado Split">
+                <input type="text" id="lead-produto" class="crm-input" placeholder="Ex: Curso INELE">
               </div>
             </div>
             <div class="crm-field">
@@ -952,9 +962,11 @@
             <label class="crm-field-label">Observações / Histórico</label>
             <textarea id="lead-obs" class="crm-textarea" rows="3" placeholder="Registre aqui o histórico de contatos, ligações ou negociações..."></textarea>
           </div>
+          <div class="crm-lead-contatos" id="lead-contatos"></div>
         </div>
 
         <div class="crm-modal-footer">
+          <button class="crm-btn-delete" id="btn-excluir-lead" onclick="excluirLead()" style="display:none"><i class="ti ti-trash"></i> Excluir</button>
           <button class="crm-btn-cancel" onclick="fecharModalLead()"><i class="ti ti-x"></i> Cancelar</button>
           <button class="crm-btn-save"   onclick="salvarLead()"><i class="ti ti-device-floppy"></i> Salvar Lead</button>
         </div>
@@ -967,7 +979,7 @@
         <div class="crm-modal-header" style="background:linear-gradient(135deg,#1565c0,#0d47a1)">
           <div class="crm-modal-icon"><i class="ti ti-headset"></i></div>
           <div>
-            <div class="crm-modal-title">Novo Chamado</div>
+            <div class="crm-modal-title" id="modal-chamado-titulo">Novo Chamado</div>
             <div class="crm-modal-sub">Registre o atendimento ao cliente</div>
           </div>
           <button onclick="fecharModalChamado()" class="crm-modal-close"><i class="ti ti-x"></i></button>
@@ -978,7 +990,9 @@
               <label class="crm-field-label">Cliente <span style="color:#ef4444">*</span></label>
               <div class="crm-input-wrap">
                 <i class="ti ti-user"></i>
-                <input type="text" id="cham-cliente" class="crm-input" placeholder="Nome do cliente">
+                <input type="hidden" id="cham-id">
+                <input type="text" id="cham-cliente" class="crm-input" placeholder="Nome do cliente" list="lista-clientes-chamado" autocomplete="off">
+                <datalist id="lista-clientes-chamado"></datalist>
               </div>
             </div>
           </div>
@@ -1024,31 +1038,31 @@
           <form id="form-loja" class="adm-config-form">
             <div class="adm-form-group">
               <label>Nome da Loja</label>
-              <input type="text" name="nomeLoja" value="ALL.ECOM Equipamentos">
+              <input type="text" name="nomeLoja" placeholder="ALL.ECOM Equipamentos">
             </div>
             <div class="adm-form-group">
               <label>CNPJ</label>
-              <input type="text" name="cnpj" value="00.000.000/0001-00">
+              <input type="text" name="cnpj" placeholder="00.000.000/0001-00">
             </div>
             <div class="adm-form-group">
               <label>E-mail de Contato</label>
-              <input type="email" name="emailContato" value="sac@allecom.com.br">
+              <input type="email" name="emailContato" placeholder="sac@allecom.com.br">
             </div>
             <div class="adm-form-group">
               <label>Telefone</label>
-              <input type="text" name="telefone" value="(48) 3533-0660">
+              <input type="text" name="telefone" placeholder="(48) 3533-0660">
             </div>
             <div class="adm-form-group">
-              <label>WhatsApp</label>
-              <input type="text" name="whatsapp" value="(48) 9 9999-0000">
+              <label>WhatsApp (com DDD)</label>
+              <input type="text" name="whatsapp" placeholder="(48) 9 9999-0000">
             </div>
             <div class="adm-form-group">
               <label>Endereço</label>
-              <input type="text" name="endereco" value="Criciúma – SC">
+              <input type="text" name="endereco" placeholder="Criciúma – SC">
             </div>
             <div class="adm-form-group">
               <label>Valor mínimo Frete Grátis (R$)</label>
-              <input type="number" name="freteGratis" value="800">
+              <input type="number" name="freteGratis" placeholder="800">
             </div>
             <button type="submit" class="adm-btn adm-btn--primary">Salvar Dados</button>
             <p class="adm-config-msg" id="msg-loja"></p>
@@ -1068,7 +1082,7 @@
             </div>
             <div class="adm-form-group">
               <label>Nova Senha</label>
-              <input type="password" name="novaSenha" placeholder="Mínimo 6 caracteres">
+              <input type="password" name="novaSenha" placeholder="Mínimo 6 caracteres (vazio = manter)">
             </div>
             <div class="adm-form-group">
               <label>Confirmar Nova Senha</label>
@@ -1100,6 +1114,21 @@
     </section>
 
   </main>
+</div>
+
+<!-- PERÍODO PERSONALIZADO (dashboard) -->
+<div id="db-date-overlay" class="db-date-overlay" style="display:none">
+  <div class="db-date-box">
+    <div class="db-date-title"><i class="ti ti-calendar"></i> Período personalizado</div>
+    <div class="db-date-row">
+      <div class="db-date-field"><label>De</label><input type="date" id="db-date-de" class="db-date-input"></div>
+      <div class="db-date-field"><label>Até</label><input type="date" id="db-date-ate" class="db-date-input"></div>
+    </div>
+    <div class="db-date-actions">
+      <button class="crm-btn-cancel" onclick="fecharDatePicker()">Cancelar</button>
+      <button class="crm-btn-save" onclick="aplicarPeriodoCustom()"><i class="ti ti-search"></i> Aplicar</button>
+    </div>
+  </div>
 </div>
 
 <!-- MODAL PRODUTO -->

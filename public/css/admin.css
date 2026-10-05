@@ -1517,3 +1517,36 @@ body.dark .adm-config-grid > *,
 body.dark .adm-widget      { background: #1e293b !important; border-color: rgba(255,255,255,.08) !important; }
 body.dark .adm-section-label { color: #64748b; }
 body.dark .adm-config-label  { color: #94a3b8; }
+
+/* ── CRM: drag & drop, ações do lead, avisos ───────────── */
+.crm-col-body.crm-drop { background: rgba(245,124,0,.08); outline: 2px dashed #f57c00; outline-offset: -4px; border-radius: 8px; }
+.crm-card { cursor: grab; }
+.crm-card.crm-dragging { opacity: .45; }
+.crm-card-meta { color: #9ca3af; font-size: .7rem; margin-top: .3rem; }
+.crm-col-vazia { color: #b0b7c3; font-size: .75rem; text-align: center; padding: 1rem .5rem; border: 1.5px dashed #e5e7eb; border-radius: 8px; }
+.crm-lead-contatos { display: flex; gap: .5rem; flex-wrap: wrap; margin-top: .75rem; }
+.crm-lead-contatos:empty { display: none; }
+.crm-lead-contatos a { text-decoration: none; }
+.crm-btn-delete {
+  display: flex; align-items: center; gap: .4rem;
+  margin-right: auto;
+  padding: .55rem 1.1rem;
+  border: 1.5px solid #fecaca; border-radius: 10px;
+  background: #fff; color: #dc2626;
+  font-size: .85rem; font-weight: 600;
+  cursor: pointer; transition: all .15s;
+}
+.crm-btn-delete:hover { background: #fef2f2; }
+.mkt-smtp-aviso {
+  display: flex; gap: .75rem; align-items: flex-start;
+  padding: .9rem 1.1rem; margin-bottom: 1rem;
+  border: 1px solid #fde68a; border-radius: 12px;
+  background: #fffbeb; color: #92400e; font-size: .85rem; line-height: 1.5;
+}
+.mkt-smtp-aviso > i { font-size: 1.3rem; color: #f59e0b; flex-shrink: 0; }
+.mkt-smtp-aviso code { background: rgba(0,0,0,.06); padding: 0 4px; border-radius: 4px; }
+.mkt-seg-pill small { opacity: .7; font-weight: 400; }
+.mkt-btn-send:disabled, .adm-btn:disabled { opacity: .6; cursor: not-allowed; }
+body.dark .crm-col-vazia { border-color: rgba(255,255,255,.1); color: #475569; }
+body.dark .crm-btn-delete { background: transparent; border-color: rgba(239,68,68,.4); }
+body.dark .mkt-smtp-aviso { background: rgba(245,158,11,.08); border-color: rgba(245,158,11,.3); color: #fcd34d; }

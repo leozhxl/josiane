@@ -36,6 +36,11 @@ router.post('/criar', authUser, async (req, res) => {
           name:  req.user.nome
         },
         external_reference: pedidoId || '',
+        back_urls: {
+          success: `${process.env.BASE_URL}/pagamento-sucesso.html`,
+          pending: `${process.env.BASE_URL}/pagamento-pendente.html`,
+          failure: `${process.env.BASE_URL}/pagamento-falha.html`
+        },
         notification_url: `${process.env.BASE_URL}/api/pagamento/webhook`
       }
     });
@@ -53,35 +58,34 @@ router.post('/criar', authUser, async (req, res) => {
 });
 
 /* ── WEBHOOK MERCADO PAGO ─────────────────────────────────── */
-/* POST /api/pagamento/webhook  (sem autenticação — chamado pelo MP) */
+/* POST /api/pagamento/webhook  (sem autenticação — chamado pelo MP)
+   Processa antes de responder: no Vercel nada roda depois da resposta. */
 router.post('/webhook', async (req, res) => {
-  res.sendStatus(200); // responde rápido para o MP
-
   try {
-    const { type, data } = req.body;
-    if (type !== 'payment' || !data?.id) return;
+    const type = req.body?.type || req.query.type || req.query.topic;
+    const id   = req.body?.data?.id || req.query['data.id'] || req.query.id;
+    if (type !== 'payment' || !id) return res.sendStatus(200);
 
     const client  = getMPClient();
     const payment = new Payment(client);
-    const info    = await payment.get({ id: data.id });
+    const info    = await payment.get({ id });
 
-    if (info.status === 'approved') {
+    if (info.status === 'approved' && info.external_reference) {
       const pedidoId = info.external_reference;
-      if (!pedidoId) return;
-
-      const pedidos = read('pedidos.json');
-      const pedido  = pedidos.find(p => p.id === pedidoId);
-      if (pedido) {
-        pedido.status     = 'Confirmado';
-        pedido.pagamentoId = String(info.id);
+      const pedidos  = await read('pedidos.json');
+      const pedido   = pedidos.find(p => p.id === pedidoId);
+      if (pedido && pedido.status === 'Aguardando') {
+        pedido.status          = 'Confirmado';
+        pedido.pagamentoId     = String(info.id);
         pedido.metodoPagamento = info.payment_type_id;
-        write('pedidos.json', pedidos);
+        await write('pedidos.json', pedidos);
         console.log(`Pedido ${pedidoId} confirmado via MP (payment ${info.id})`);
       }
     }
   } catch (err) {
     console.error('Webhook MP erro:', err.message);
   }
+  res.sendStatus(200);
 });
 
 /* ── STATUS DE PAGAMENTO ─────────────────────────────────── */

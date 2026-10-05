@@ -2,6 +2,14 @@
   /* ── API ─────────────────────────────────────────────── */
   var API = '/api';
 
+  /* ── CONTADOR DE VISITAS (1 por sessão; alimenta o dashboard) ── */
+  try {
+    if (!sessionStorage.getItem('allecom_visita')) {
+      sessionStorage.setItem('allecom_visita', '1');
+      fetch('/api/visitas', { method: 'POST' }).catch(function () {});
+    }
+  } catch (e) {}
+
   function getToken() { return sessionStorage.getItem('allecom_token') || ''; }
   function setToken(t) { sessionStorage.setItem('allecom_token', t); }
   function clearToken() { sessionStorage.removeItem('allecom_token'); }
