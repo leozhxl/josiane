@@ -44,6 +44,19 @@ router.post('/', authAdmin, async (req, res) => {
   res.status(201).json(novo);
 });
 
+/* PUT /api/anuncios/ordem — admin, define a ordem da vitrine
+   body: { ids: [id1, id2, ...] } — ids ausentes vão para o final, na ordem atual */
+router.put('/ordem', authAdmin, async (req, res) => {
+  const ids = Array.isArray(req.body.ids) ? req.body.ids.map(String) : null;
+  if (!ids) return res.status(400).json({ error: 'Lista de ids obrigatória.' });
+  const arr = await read('anuncios.json');
+  const pos = new Map(ids.map((id, i) => [id, i]));
+  const ordenados = arr.filter(a => pos.has(String(a.id))).sort((a, b) => pos.get(String(a.id)) - pos.get(String(b.id)));
+  const resto     = arr.filter(a => !pos.has(String(a.id)));
+  await write('anuncios.json', ordenados.concat(resto));
+  res.json({ ok: true });
+});
+
 /* PUT /api/anuncios/:id — admin */
 router.put('/:id', authAdmin, async (req, res) => {
   const arr = await read('anuncios.json');

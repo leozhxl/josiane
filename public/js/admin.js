@@ -984,12 +984,13 @@
       if (anuncios.length === 0) { grid.innerHTML = ''; vazio.style.display = 'block'; return; }
       vazio.style.display = 'none';
       var statusMap = { ativo:'st-ativo', inativo:'st-inativo', destaque:'st-destaque' };
-      grid.innerHTML = anuncios.map(function (a) {
+      grid.innerHTML = anuncios.map(function (a, i) {
         var preco = num(a.preco), desc = parseInt(a.desconto, 10) || 0;
         var imgHtml = a.fotos && a.fotos.length > 0
           ? '<img class="anuncio-card-img" src="' + esc(proxySrc(a.fotos[0])) + '" alt="">'
           : '<div class="anuncio-card-img-placeholder"><i class="ti ti-photo"></i></div>';
-        return '<div class="anuncio-card" data-id="' + esc(a.id) + '">' + imgHtml +
+        return '<div class="anuncio-card" data-id="' + esc(a.id) + '"' + (filtro ? '' : ' draggable="true"') + '>' +
+          (filtro ? '' : '<div class="anuncio-card-pos"><i class="ti ti-grip-vertical"></i> <span>' + (i + 1) + 'º</span></div>') + imgHtml +
           '<div class="anuncio-card-body">' +
             '<div class="anuncio-card-marca">' + esc(a.marca || '') + '</div>' +
             '<div class="anuncio-card-nome">' + esc(a.titulo) + '</div>' +
@@ -1019,7 +1020,87 @@
       grid.querySelectorAll('.anuncio-card').forEach(function (card) {
         card.addEventListener('click', function () { editar(card.dataset.id); });
       });
+      $('anuncios-ordem-dica').textContent = filtro
+        ? 'Limpe a busca para reordenar os anúncios.'
+        : 'Arraste os cards para definir a ordem em que aparecem na loja.';
+      if (!filtro) initOrdenacaoAnuncios(grid);
     }).catch(function (err) { console.error('Anúncios:', err.message); });
+  }
+
+  /* Arrastar-e-soltar para ordenar a vitrine (mouse e toque) */
+  function initOrdenacaoAnuncios(grid) {
+    var arrastando = null, ordemInicial = '';
+
+    function idsAtuais() {
+      return Array.prototype.map.call(grid.querySelectorAll('.anuncio-card'), function (c) { return c.dataset.id; });
+    }
+    function cardSob(x, y) {
+      var el = document.elementFromPoint(x, y);
+      var card = el && el.closest ? el.closest('.anuncio-card') : null;
+      return card && card !== arrastando && grid.contains(card) ? card : null;
+    }
+    function moverPara(alvo, x, y) {
+      if (!alvo) return;
+      var r = alvo.getBoundingClientRect();
+      var depois = (y > r.top + r.height / 2) || (x > r.left + r.width / 2 && y > r.top);
+      grid.insertBefore(arrastando, depois ? alvo.nextSibling : alvo);
+    }
+    function numerar() {
+      grid.querySelectorAll('.anuncio-card-pos span').forEach(function (s, i) { s.textContent = (i + 1) + 'º'; });
+    }
+    function salvar() {
+      numerar();
+      var ids = idsAtuais();
+      if (ids.join(',') === ordemInicial) return;
+      var dica = $('anuncios-ordem-dica');
+      dica.textContent = 'Salvando ordem...';
+      api('PUT', '/anuncios/ordem', { ids: ids })
+        .then(function () { dica.textContent = 'Ordem salva! A loja já mostra os anúncios nessa sequência.'; })
+        .catch(function (err) { dica.textContent = 'Erro ao salvar a ordem: ' + err.message; renderAnuncios(''); });
+    }
+
+    /* Mouse (desktop) */
+    grid.querySelectorAll('.anuncio-card[draggable]').forEach(function (card) {
+      card.addEventListener('dragstart', function (e) {
+        arrastando = card; ordemInicial = idsAtuais().join(',');
+        card.classList.add('arrastando');
+        e.dataTransfer.effectAllowed = 'move';
+        try { e.dataTransfer.setData('text/plain', card.dataset.id); } catch (_) {}
+      });
+      card.addEventListener('dragend', function () {
+        card.classList.remove('arrastando');
+        arrastando = null;
+        salvar();
+      });
+    });
+    grid.ondragover = function (e) {
+      if (!arrastando) return;
+      e.preventDefault();
+      moverPara(cardSob(e.clientX, e.clientY), e.clientX, e.clientY);
+    };
+
+    /* Toque (celular/tablet): segurar a alça ⋮⋮ e arrastar */
+    grid.querySelectorAll('.anuncio-card-pos').forEach(function (alca) {
+      alca.addEventListener('click', function (e) { e.stopPropagation(); });
+      alca.addEventListener('touchstart', function (e) {
+        arrastando = alca.closest('.anuncio-card');
+        ordemInicial = idsAtuais().join(',');
+        arrastando.classList.add('arrastando');
+        e.preventDefault();
+      }, { passive: false });
+      alca.addEventListener('touchmove', function (e) {
+        if (!arrastando) return;
+        e.preventDefault();
+        var t = e.touches[0];
+        moverPara(cardSob(t.clientX, t.clientY), t.clientX, t.clientY);
+      }, { passive: false });
+      alca.addEventListener('touchend', function () {
+        if (!arrastando) return;
+        arrastando.classList.remove('arrastando');
+        arrastando = null;
+        salvar();
+      });
+    });
   }
 
   /* ══════════════════════════════════════════════
